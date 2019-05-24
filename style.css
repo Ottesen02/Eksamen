@@ -1,0 +1,468 @@
+/*
+Indholdsfortegnelse
+    1. Generelle Regler
+    2. Header/nav
+    3. Footer
+    4. Forside
+    5. Køkkener
+    6. Køkkenside
+    7. Meet Your Tailor
+    8. Meet Your Maker
+    9. Kitchen Care
+    10. Kontakt
+*/
+
+/************* 1. Generelle Regler ***************/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: cinzel;
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    font-family: ;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+/************* 2. Header/Nav ***************/
+
+header {
+    height: 100px;
+    width: 100vw;
+    margin: 0 auto;
+    background-color: white;
+    transition: 0.7s all ease;
+    padding: 0 20px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.50);
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    max-width: 1310px;
+    margin: 0 auto;
+
+}
+
+.mobil-logo {
+    text-align: center;
+    font-size: 25px;
+}
+
+.menu-punkter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    align-items: baseline;
+
+}
+
+.mobil-book {
+    text-align: center;
+}
+
+.kalender-icon {
+    width: 35px;
+}
+
+
+/* Burger Menu */
+.burger-container {
+    text-align: center;
+}
+
+
+.container {
+    display: inline-block;
+    cursor: pointer;
+
+}
+
+.bar1,
+.bar2,
+.bar3 {
+    width: 37.5px;
+    height: 3px;
+    background-color: #000000;
+    transition: 0.5s;
+}
+
+.bar2 {
+    width: 30px;
+    margin: 6px auto;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-7px, 5px);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-7px, -7px);
+}
+
+/*  Mobil Menu Overlay  */
+
+.mobil-overlay {
+    height: 100vh;
+    width: 100vw;
+    background-color: #cecece;
+    z-index: 9;
+    position: fixed;
+    top: 100px;
+    right: -100vw;
+    opacity: 0;
+    transition: 0.5s all ease;
+}
+
+.top-container {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.50);
+    text-align: center;
+}
+
+.mobil-hoved-menupunkter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.mobil-hoved-menupunkter a {
+    font-family: cinzel;
+    margin: 2vh 0;
+    font-size: 18px;
+}
+
+.search input {
+    padding: 5px 5px 5px 5px;
+    width: 300px;
+    height: 37px;
+    border: 3px solid #414141;
+    margin: 15px 0;
+}
+
+.bot-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.mobil-sub-menupunkter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.mobil-sub-menupunkter a {
+    margin: 2vh 0;
+    font-size:
+
+}
+
+/*  Desktop Menu Overlay  */
+
+.desk-overlay {
+    height: 100vh;
+    width: 350px;
+    background-color: #cecece;
+    z-index: 9;
+    position: fixed;
+    top: 100px;
+    transition: 0.5s all ease;
+    right: -350px;
+    opacity: 0;
+
+
+}
+
+.desk-top-container {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.50);
+    text-align: center;
+    ´
+}
+
+.desk-hoved-menupunkter {
+    display: grid;
+    grid-template-columns: 1fr
+}
+
+.desk-hoved-menupunkter a {
+    font-family: cinzel;
+    margin: 1.5vh 0;
+    font-size: 18px;
+}
+
+.search input {
+    padding: 5px 5px 5px 5px;
+    width: 300px;
+    height: 37px;
+    border: 3px solid #414141;
+    margin: 15px 0;
+}
+
+.desk-bot-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.desk-sub-menupunkter {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.desk-sub-menupunkter a {
+    margin: 1vh 0;
+    font-size:
+
+}
+
+@media only screen and (min-width: 600px) {
+    .mobil-hoved-menupunkter a {
+        font-size: 24px;
+    }
+
+    .mobil-sub-menupunkter a {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .menu-punkter {
+        display: flex;
+        align-items: center
+    }
+
+    .menu-punkter a {
+        margin: 10px;
+    }
+
+    .mobil-book {
+        display: flex;
+    }
+
+    #desktop-burger {
+        margin: 0 0 0 20px;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .menu-punkter a {
+        font-size: 20px
+    }
+}
+
+@media only screen and (min-width: 1200px) {}
+
+/************* 3. Footer ***************/
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 600px) {}
+
+@media only screen and (min-width: 800px) {}
+
+@media only screen and (min-width: 1000px) {}
+
+@media only screen and (min-width: 1200px) {}
+
+/************* 4. Forside ***************/
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 600px) {}
+
+@media only screen and (min-width: 800px) {}
+
+@media only screen and (min-width: 1000px) {}
+
+@media only screen and (min-width: 1200px) {}
+
+/************* 5. Køkkener ***************/
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 600px) {}
+
+@media only screen and (min-width: 800px) {}
+
+@media only screen and (min-width: 1000px) {}
+
+@media only screen and (min-width: 1200px) {}
+
+/************* 6. Køkkenside ***************/
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 600px) {}
+
+@media only screen and (min-width: 800px) {}
+
+@media only screen and (min-width: 1000px) {}
+
+@media only screen and (min-width: 1200px) {}
+
+/************* 7. Meet Your Tailor ***************/
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 600px) {}
+
+@media only screen and (min-width: 800px) {}
+
+@media only screen and (min-width: 1000px) {}
+
+@media only screen and (min-width: 1200px) {}
+
+/************* 8. Meet Your Maker ***************/
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 600px) {}
+
+@media only screen and (min-width: 800px) {}
+
+@media only screen and (min-width: 1000px) {}
+
+@media only screen and (min-width: 1200px) {}
+
+/************* 9. Kitchen Care ***************/
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 600px) {}
+
+@media only screen and (min-width: 800px) {}
+
+@media only screen and (min-width: 1000px) {}
+
+@media only screen and (min-width: 1200px) {}
+
+/************* 10. Kontakt ***************/
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 600px) {}
+
+@media only screen and (min-width: 800px) {}
+
+@media only screen and (min-width: 1000px) {}
+
+@media only screen and (min-width: 1200px) {}
+
+
+
+/************* 10. Classes ***************/
+
+.hide-mobile {
+    display: none;
+}
+
+.hide-mobile-block {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.open {
+    right: 0;
+    opacity: 1;
+}
+
+@media only screen and (min-width: 800px) {
+    .hide-desktop {
+        display: none;
+    }
+
+    .hide-mobile {
+        display: flex;
+    }
+
+    .hide-mobile-block {
+        display: block;
+    }
+}
