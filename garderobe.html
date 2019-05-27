@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+
+</head>
+<header>
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <h1 class="desktop-logo hide-mobile">Kitchen Tailor</h1>
+            <h1 class="mobil-logo hide-desktop">Kitchen <br> Tailor</h1>
+        </a>
+        <div class="menu-punkter">
+            <div class="hide-mobile">
+                <a href="koekkener.html">
+                    <h4>Køkkener</h4>
+                </a>
+                <a href="koekkener.html">
+                    <h4>Bad</h4>
+                </a>
+                <a href="koekkener.html">
+                    <h4>Garderobe</h4>
+                </a>
+                <a href="koekkener.html">
+                    <h4>Opbevaring</h4>
+                </a>
+            </div>
+            <a href="kontakt.html" class="mobil-book">
+                <img src="billeder/Kalender.svg" alt="kalender" class="kalender-icon">
+                <h4>Book Møde</h4>
+            </a>
+            <div id="mobil-burger" class="burger-container hide-desktop">
+                <div class="container" onclick="myFunction(this)">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+                <h4 class="opened">Menu</h4>
+                <h4 class="hide closed">Luk Menu</h4>
+            </div>
+            <div id="desktop-burger" class="burger-container hide-mobile">
+                <div class="container" onclick="myFunction(this)">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<body>
+    <div id="overlay" class="mobil-overlay hide-desktop">
+        <div class="top-container">
+            <div class="mobil-hoved-menupunkter">
+                <a href="koekkener.html">Køkkener</a>
+                <a href="bad.html">Bad</a>
+                <a href="garderobe.html">Garderobe</a>
+                <a href="opbevaring.html">Opbevaring</a>
+                <a href="meet-your-tailor.html">Mød din tailor</a>
+                <a href="kitchen-care.html">Kitchen care</a>
+                <a href="meet-your-maker.html">Mød din snedker</a>
+                <a href="kontakt.html">Kontakt</a>
+
+            </div>
+            <div class="search">
+                <input type="text" placeholder="Søg efter ting her...">
+            </div>
+        </div>
+        <div class="bot-container">
+            <div class="mobil-sub-menupunkter">
+                <a href="#">Hvorfor kitchen tailor?</a>
+                <a href="#">Åbningstider</a>
+                <a href="#">Vejledning</a>
+                <a href="#">Erhverv</a>
+                <a href="#">Markedsplads</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Job</a>
+                <a href="#">Garanti</a>
+            </div>
+            <div class="mobil-menu-some"></div>
+        </div>
+    </div>
+    <div id="desk-overlay" class="desk-overlay hide-mobile-block">
+        <div class="desk-top-container">
+            <div class="desk-hoved-menupunkter">
+                <a href="meet-your-tailor.html">Mød din tailor</a>
+                <a href="kitchen-care.html">Kitchen care</a>
+                <a href="meet-your-maker.html">Mød din snedker</a>
+                <a href="kontakt.html">Kontakt</a>
+
+            </div>
+            <div class="search">
+                <input type="text" placeholder="Søg efter ting her...">
+            </div>
+        </div>
+        <div class="desk-bot-container">
+            <div class="desk-sub-menupunkter">
+                <a href="#">Hvorfor kitchen tailor?</a>
+                <a href="#">Åbningstider</a>
+                <a href="#">Vejledning</a>
+                <a href="#">Erhverv</a>
+                <a href="#">Markedsplads</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Job</a>
+                <a href="#">Garanti</a>
+            </div>
+            <div class="desk-menu-some"></div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="topbar">
+            <h1>Kitchen Tailor</h1>
+            <button>Book Møde <img src="billeder/Kalender.svg" alt="Kalender"></button>
+            <div class="footer-some">
+                <a href=""><img src="billeder/facebook.png" alt="facebook"></a>
+                <a href=""><img src="billeder/instagram.png" alt="instagram"></a>
+                <a href=""><img src="billeder/twitter.png" alt="twitter"></a>
+            </div>
+        </div>
+        <div class="footer-grid">
+            <div class="footer-hovedsider">
+                <h4>Hovedsider</h4>
+                <div class="hovedsider-links">
+                    <a href="koekkener.html">Køkkener</a>
+                    <a href="bad.html">Bad</a>
+                    <a href="garderobe.html">Garderobe</a>
+                    <a href="opbevaring.html">Opbevaring</a>
+                    <a href="meet-your-tailor.html">Mød din tailor</a>
+                    <a href="kitchen-care.html">Kitchen care</a>
+                    <a href="meet-your-maker.html">Mød din snedker</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </div>
+            </div>
+            <div class="footer-subsider">
+                <h4>Undersider</h4>
+                <div class="subsider-links">
+                    <a href="#">Hvorfor kitchen tailor?</a>
+                    <a href="#">Åbningstider</a>
+                    <a href="#">Vejledning</a>
+                    <a href="#">Erhverv</a>
+                    <a href="#">Markedsplads</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Job</a>
+                    <a href="#">Garanti</a>
+                </div>
+            </div>
+            <div class="footer-adresse">
+                <h4>Find os her</h4>
+                <p>Tegnestue og Showroom<br>
+                    Strandvejen 140<br>
+                    2900 Hellerup</p>
+            </div>
+            <div class="footer-tider">
+                <h4>her har vi åbent</h4>
+                <p> Mandag: Lukket <br>
+                    Tirsdag-Fredag: 10:00-16:30<br>
+                    Lørdag: 10:00-14:00</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        let forside;
+        document.addEventListener("DOMContentLoaded", getJson);
+
+        async function getJson() {
+            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/forside";
+            const forsideJson = await fetch(url);
+            forside = await forsideJson.json();
+
+            showForside();
+        }
+
+        function showForside() {
+            document.querySelector(".site-title").innerHTML = forside.title.rendered;
+        }
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
