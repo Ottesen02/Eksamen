@@ -730,6 +730,64 @@ footer a:hover {
 
 /************* 5. Køkkener ***************/
 
+.filter-mobil {
+    background-color: #d0d0d0;
+    position: fixed;
+    width: 100%;
+    z-index: 50;
+
+}
+
+.filter-mobil h4 {
+    font-size: 18px;
+}
+
+.stil-filter-mobil,
+.farver-filter-mobil {
+    border-bottom: 1px solid #575757;
+    padding: 7px 20px;
+}
+
+.stil-container,
+.farver-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.minus-tegn-stil,
+.minus-tegn-farver {
+    background-image: url(billeder/minus.svg);
+    height: 15px;
+    width: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.plus-tegn-stil,
+.plus-tegn-farver {
+    background-image: url(billeder/plus.svg);
+    height: 15px;
+    width: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.stilarter {
+    padding: 5px 30px;
+}
+
+.stilarter p {
+    padding: 3px 0;
+}
+
+.find-kokken {
+    text-align: center;
+    margin: 100px 0 -20px;
+}
+
 .kokken-container {
     display: grid;
     grid-template-columns: 1fr;
