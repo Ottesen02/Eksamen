@@ -270,6 +270,18 @@
                 dest.appendChild(klon);
             })
         }
+
+        document.querySelector(".stil-container").addEventListener("click", () => {
+            document.querySelector(".plus-tegn-stil").classList.toggle("hide");
+            document.querySelector(".minus-tegn-stil").classList.toggle("hide");
+            document.querySelector(".stilarter").classList.toggle("hide");
+        })
+
+        document.querySelector(".farver-container").addEventListener("click", () => {
+            document.querySelector(".plus-tegn-farver").classList.toggle("hide");
+            document.querySelector(".minus-tegn-farver").classList.toggle("hide");
+            document.querySelector(".farver").classList.toggle("hide");
+        })
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
