@@ -730,16 +730,67 @@ footer a:hover {
 
 /************* 5. Køkkener ***************/
 
+.kokken-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 20px;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.kokken-billede {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: 0.5s all ease;
+}
+
+.kokken-billede:hover {
+    transform: scale(1.1)
+}
+
+.single-container {
+    margin: 25px 0;
+
+}
+
+.kokken-tekst-container {
+    background-color: #414141;
+    height: 60px;
+    width: 200px;
+    margin: -30px auto;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.70);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    z-index: 31;
+    position: relative;
+    cursor: pointer;
+}
+
+.overflow-kokken {
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+}
 
 
 
+@media only screen and (min-width: 600px) {
 
-
-
-
-
-
-@media only screen and (min-width: 600px) {}
+    .kokken-container {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        max-width: none;
+    }
+}
 
 @media only screen and (min-width: 800px) {}
 

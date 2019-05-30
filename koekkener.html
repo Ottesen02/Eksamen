@@ -116,14 +116,14 @@
         </div>
     </div>
 
-    <div class="filter-mobil">
+    <div class="filter-mobil hide-desktop">
         <div class="stil-filter-mobil">
             <div class="stil-container">
                 <h4>Stil</h4>
                 <div class="plus-tegn-stil"></div>
-                <div class="minus-tegn-stil"></div>
+                <div class="minus-tegn-stil hide"></div>
             </div>
-            <div class="stilarter">
+            <div class="stilarter hide">
                 <p class="stil-klassisk">Klassisk</p>
                 <p class="stil-enkelt">Enkelt</p>
                 <p class="stil-vildt">Vildt</p>
@@ -133,7 +133,34 @@
             <div class="farver-container">
                 <h4>Farver</h4>
                 <div class="plus-tegn-farver"></div>
-                <div class="minus-tegn-farver"></div>
+                <div class="minus-tegn-farver hide"></div>
+            </div>
+            <div class="farver hide">
+                <div class="farve farve1"></div>
+                <div class="farve farve2"></div>
+                <div class="farve farve3"></div>
+                <div class="farve farve4"></div>
+                <div class="farve farve5"></div>
+                <div class="farve farve6"></div>
+                <div class="farve farve7"></div>
+                <div class="farve farve8"></div>
+            </div>
+        </div>
+    </div>
+    <div class="filter-desktop hide-mobile-block">
+        <div class="stil-filter-desktop">
+            <div class="stil-container">
+                <h4>Stil</h4>
+            </div>
+            <div class="stilarter">
+                <p class="stil-klassisk">Klassisk</p>
+                <p class="stil-enkelt">Enkelt</p>
+                <p class="stil-vildt">Vildt</p>
+            </div>
+        </div>
+        <div class="farver-filter-desktop">
+            <div class="farver-container">
+                <h4>Farver</h4>
             </div>
             <div class="farver">
                 <div class="farve farve1"></div>
@@ -147,18 +174,10 @@
             </div>
         </div>
     </div>
-    <h2>Find dit nye køkken i dag</h2>
-
-
+    <h2 class="find-kokken">Find dit nye køkken i dag</h2>
     <section class="kokken-container">
-        <div class="kokken-billede">
-            <div class="tekst-container">
-                <h3>Køkken</h3>
-            </div>
-        </div>
 
     </section>
-
     <footer>
         <div class="topbar">
             <h1>Kitchen Tailor</h1>
@@ -210,22 +229,44 @@
             </div>
         </div>
     </footer>
-
+    <template class="kokken-temp">
+        <div class="single-container">
+            <div class="overflow-kokken">
+                <div class="kokken-billede">
+                </div>
+            </div>
+            <div class="kokken-tekst-container">
+                <h2 class="kokken-titel"></h2>
+            </div>
+        </div>
+    </template>
     <script src="script.js"></script>
     <script>
-        let forside;
+        let kokkener = [];
+
         document.addEventListener("DOMContentLoaded", getJson);
 
         async function getJson() {
-            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/forside";
-            const forsideJson = await fetch(url);
-            forside = await forsideJson.json();
+            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/kokkener";
+            const kokkenerJson = await fetch(url);
+            kokkener = await kokkenerJson.json();
 
-            showForside();
+            showKokkener();
         }
 
-        function showForside() {
-            document.querySelector(".site-title").innerHTML = forside.title.rendered;
+        function showKokkener() {
+
+            let dest = document.querySelector(".kokken-container");
+            let temp = document.querySelector(".kokken-temp");
+
+            kokkener.forEach(kokken => {
+                let klon = temp.cloneNode(true).content;
+
+                klon.querySelector(".kokken-titel").innerHTML = kokken.title.rendered;
+                klon.querySelector(".kokken-billede").style.backgroundImage = `url(${kokken.splash_billede.guid})`;
+
+                dest.appendChild(klon);
+            })
         }
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
