@@ -22,13 +22,13 @@
                 <a href="koekkener.html">
                     <h4>Køkkener</h4>
                 </a>
-                <a href="koekkener.html">
+                <a href="bad.html">
                     <h4>Bad</h4>
                 </a>
-                <a href="koekkener.html">
+                <a href="garderobe.html">
                     <h4>Garderobe</h4>
                 </a>
-                <a href="koekkener.html">
+                <a href="opbevaring.html">
                     <h4>Opbevaring</h4>
                 </a>
             </div>
@@ -116,6 +116,54 @@
         </div>
     </div>
 
+    <section class="tailor-splash">
+        <h2 class="tailor-overskrift"></h2>
+    </section>
+
+    <main class="tailor-content care-content">
+        <div class="tailor-indhold">
+            <div class="om-billede care-billede-top"></div>
+            <div class="om-content">
+            </div>
+        </div>
+    </main>
+
+    <section class="andre-rum">
+        <div class="bad-billede andre-container tra-bordplade">
+            <div class="tekst-background">
+                <h4 class="bordplade-overskrift1 bordplade-overskrift"></h4>
+                <p class="bordplade1 bordplade"></p>
+            </div>
+        </div>
+        <div class="garde-billede andre-container sten-bordplade">
+            <div class="tekst-background">
+                <h4 class="bordplade-overskrift2 bordplade-overskrift"></h4>
+                <p class="bordplade2 bordplade"></p>
+            </div>
+        </div>
+        <div class="reol-billede andre-container stal-bordplade">
+            <div class="tekst-background">
+                <h4 class="bordplade-overskrift3 bordplade-overskrift"></h4>
+                <p class="bordplade3 bordplade"></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="tailor-content content-bot">
+        <div class="tailor-indhold">
+            <div class="om-billede billede-bot"></div>
+            <div class="bot-content">
+                <h4 class="overskrift1 care-overskrift-bot"></h4>
+                <p class="beskrivelse1 care-beskrivelse-bot"></p>
+                <h4 class="overskrift2 care-overskrift-bot"></h4>
+                <p class="beskrivelse2 care-beskrivelse-bot"></p>
+                <h4 class="overskrift3 care-overskrift-bot"></h4>
+                <p class="beskrivelse3 care-beskrivelse-bot"></p>
+                <h4 class="overskrift4 care-overskrift-bot"></h4>
+                <p class="beskrivelse4 care-beskrivelse-bot"></p>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <div class="topbar">
@@ -171,19 +219,43 @@
 
     <script src="script.js"></script>
     <script>
-        let forside;
+        let care;
         document.addEventListener("DOMContentLoaded", getJson);
 
         async function getJson() {
-            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/forside";
-            const forsideJson = await fetch(url);
-            forside = await forsideJson.json();
+            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/kitchen_care/302";
+            const careJson = await fetch(url);
+            care = await careJson.json();
 
-            showForside();
+            showCare();
         }
 
-        function showForside() {
-            document.querySelector(".site-title").innerHTML = forside.title.rendered;
+        function showCare() {
+            document.querySelector(".tailor-overskrift").innerHTML = care.title.rendered;
+            document.querySelector(".om-content").innerHTML = care.content.rendered;
+            document.querySelector(".tailor-splash").style.backgroundImage = `url(${care.splash_billede.guid})`;
+            document.querySelector(".om-billede").style.backgroundImage = `url(${care.content_billede.guid})`;
+
+            document.querySelector(".bordplade-overskrift1").innerHTML = care.bordplade_overskrift1;
+            document.querySelector(".bordplade1").innerHTML = care.bordplade_tekst1;
+            document.querySelector(".bad-billede").style.backgroundImage = `url(${care.bordplade1.guid})`;
+            document.querySelector(".bordplade-overskrift2").innerHTML = care.bordplade_overskrift2;
+            document.querySelector(".bordplade2").innerHTML = care.bordplade_tekst2;
+            document.querySelector(".garde-billede").style.backgroundImage = `url(${care.bordplade2.guid})`;
+            document.querySelector(".bordplade-overskrift3").innerHTML = care.bordplade_overskrift3;
+            document.querySelector(".bordplade3").innerHTML = care.bordplade_tekst3;
+            document.querySelector(".reol-billede").style.backgroundImage = `url(${care.bordplade3.guid})`;
+            document.querySelector(".billede-bot").style.backgroundImage = `url(${care.content_billede_bot.guid})`;
+            document.querySelector(".overskrift1").innerHTML = care.beskrivelse_overskrift1;
+            document.querySelector(".beskrivelse1").innerHTML = care.beskrivelse1;
+            document.querySelector(".overskrift2").innerHTML = care.beskrivelse_overskrift2;
+            document.querySelector(".beskrivelse2").innerHTML = care.beskrivelse2;
+            document.querySelector(".overskrift3").innerHTML = care.beskrivelse_overskrift3;
+            document.querySelector(".beskrivelse3").innerHTML = care.beskrivelse3;
+            document.querySelector(".overskrift4").innerHTML = care.beskrivelse_overskrift4;
+            document.querySelector(".beskrivelse4").innerHTML = care.beskrivelse4;
+
+
         }
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

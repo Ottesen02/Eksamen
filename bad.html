@@ -18,20 +18,20 @@
             <h1 class="mobil-logo hide-desktop">Kitchen <br> Tailor</h1>
         </a>
         <div class="menu-punkter">
-            <div class="hide-mobile">
-                <a href="koekkener.html">
-                    <h4>Køkkener</h4>
-                </a>
-                <a href="koekkener.html">
-                    <h4>Bad</h4>
-                </a>
-                <a href="koekkener.html">
-                    <h4>Garderobe</h4>
-                </a>
-                <a href="koekkener.html">
-                    <h4>Opbevaring</h4>
-                </a>
-            </div>
+<div class="hide-mobile">
+    <a href="koekkener.html">
+        <h4>Køkkener</h4>
+    </a>
+    <a href="bad.html">
+        <h4>Bad</h4>
+    </a>
+    <a href="garderobe.html">
+        <h4>Garderobe</h4>
+    </a>
+    <a href="opbevaring.html">
+        <h4>Opbevaring</h4>
+    </a>
+</div>
             <a href="kontakt.html" class="mobil-book">
                 <img src="billeder/Kalender.svg" alt="kalender" class="kalender-icon">
                 <h4>Book Møde</h4>
@@ -116,6 +116,25 @@
         </div>
     </div>
 
+    <section class="kokken-splash">
+        <a href="#kokken-info">
+            <div class="arrow hide-mobile"></div>
+        </a>
+    </section>
+
+    <section id="kokken-info" class="kokken-info">
+        <h2 class="kokken-overskrift"></h2>
+        <h4 class="kokken-underoverskrift"></h4>
+        <p class="kokken-beskrivelse"></p>
+    </section>
+
+    <section class="maker-container">
+        <div class="left-column">
+            <div class="top-pic"></div>
+            <div class="bot-pic"></div>
+        </div>
+        <div class="right-column"></div>
+    </section>
 
     <footer>
         <div class="topbar">
@@ -171,19 +190,26 @@
 
     <script src="script.js"></script>
     <script>
-        let forside;
+        let kokken;
         document.addEventListener("DOMContentLoaded", getJson);
 
         async function getJson() {
-            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/forside";
-            const forsideJson = await fetch(url);
-            forside = await forsideJson.json();
+            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/andre_rum/320";
+            const kokkenJson = await fetch(url);
+            kokken = await kokkenJson.json();
 
-            showForside();
+            showKokken();
         }
 
-        function showForside() {
-            document.querySelector(".site-title").innerHTML = forside.title.rendered;
+        function showKokken() {
+            document.querySelector(".kokken-splash").style.backgroundImage = `url(${kokken.splash_billede.guid})`;
+            document.querySelector(".kokken-overskrift").innerHTML = kokken.title.rendered;
+            document.querySelector(".kokken-beskrivelse").innerHTML = kokken.content.rendered;
+            document.querySelector(".top-pic").style.backgroundImage = `url(${kokken.top_left_billede.guid})`;
+            document.querySelector(".bot-pic").style.backgroundImage = `url(${kokken.bottom_left_billede.guid})`;
+            document.querySelector(".right-column").style.backgroundImage = `url(${kokken.right_billede.guid})`;
+
+
         }
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

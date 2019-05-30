@@ -22,13 +22,13 @@
                 <a href="koekkener.html">
                     <h4>Køkkener</h4>
                 </a>
-                <a href="koekkener.html">
+                <a href="bad.html">
                     <h4>Bad</h4>
                 </a>
-                <a href="koekkener.html">
+                <a href="garderobe.html">
                     <h4>Garderobe</h4>
                 </a>
-                <a href="koekkener.html">
+                <a href="opbevaring.html">
                     <h4>Opbevaring</h4>
                 </a>
             </div>
@@ -116,6 +116,28 @@
         </div>
     </div>
 
+    <section class="tailor-splash">
+        <h2 class="tailor-overskrift"></h2>
+    </section>
+
+    <main class="tailor-content">
+        <h2 class="om-os"></h2>
+        <div class="tailor-indhold">
+            <div class="om-billede kontakt-billede"></div>
+            <div class="kontakt-content">
+            </div>
+        </div>
+    </main>
+
+    <section class="kontakt-form">
+        <input class="input" type="text" placeholder="Navn" required>
+        <input class="input" type="email" placeholder="E-mail" required>
+        <input class="input" type="text" placeholder="Emne" required>
+        <input class="besked input" type="text" placeholder="Besked" required>
+        <div class="knap-container">
+            <button class="send-knap">SEND</button>
+        </div>
+    </section>
 
     <footer>
         <div class="topbar">
@@ -171,19 +193,26 @@
 
     <script src="script.js"></script>
     <script>
-        let forside;
+        let kontakt;
         document.addEventListener("DOMContentLoaded", getJson);
 
         async function getJson() {
-            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/forside";
-            const forsideJson = await fetch(url);
-            forside = await forsideJson.json();
+            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/kontakt/308";
+            const kontaktJson = await fetch(url);
+            kontakt = await kontaktJson.json();
 
-            showForside();
+            showKontakt();
         }
 
-        function showForside() {
-            document.querySelector(".site-title").innerHTML = forside.title.rendered;
+        function showKontakt() {
+            document.querySelector(".tailor-overskrift").innerHTML = kontakt.title.rendered;
+            document.querySelector(".kontakt-content").innerHTML = kontakt.content.rendered;
+            document.querySelector(".om-os").innerHTML = kontakt.overskrift;
+            document.querySelector(".tailor-splash").style.backgroundImage = `url(${kontakt.splash_billede.guid})`;
+            //document.querySelector(".om-billede").style.backgroundImage = `url(${kontakt.content_billede.guid})`;
+
+
+            getJsonTailor();
         }
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

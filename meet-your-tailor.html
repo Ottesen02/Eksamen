@@ -22,13 +22,13 @@
                 <a href="koekkener.html">
                     <h4>Køkkener</h4>
                 </a>
-                <a href="koekkener.html">
+                <a href="bad.html">
                     <h4>Bad</h4>
                 </a>
-                <a href="koekkener.html">
+                <a href="garderobe.html">
                     <h4>Garderobe</h4>
                 </a>
-                <a href="koekkener.html">
+                <a href="opbevaring.html">
                     <h4>Opbevaring</h4>
                 </a>
             </div>
@@ -116,7 +116,27 @@
         </div>
     </div>
 
+    <section class="tailor-splash">
+        <h2 class="tailor-overskrift"></h2>
+    </section>
 
+    <main class="tailor-content">
+        <h2 class="om-os"></h2>
+        <div class="tailor-indhold">
+            <div class="om-billede"></div>
+            <div class="om-content">
+            </div>
+        </div>
+    </main>
+
+    <section class="tailor-parallax">
+    </section>
+
+    <section class="tailors">
+        <h2 class="your-tailors"></h2>
+        <div class="tailor-info">
+        </div>
+    </section>
     <footer>
         <div class="topbar">
             <h1>Kitchen Tailor</h1>
@@ -168,22 +188,62 @@
             </div>
         </div>
     </footer>
-
+    <template class="temp-tailor">
+        <div class="tailor1">
+            <div class="tailor-billede tailor-billede1"></div>
+            <h3 class="tailor-navn tailor-navn1"></h3>
+            <p class="tailor-beskrivelse tailor-beskrivelse1"></p>
+        </div>
+    </template>
     <script src="script.js"></script>
     <script>
-        let forside;
+        let om;
+        let tailor = [];
         document.addEventListener("DOMContentLoaded", getJson);
 
         async function getJson() {
-            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/forside";
-            const forsideJson = await fetch(url);
-            forside = await forsideJson.json();
+            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/meet_your_tailor/268";
+            const omJson = await fetch(url);
+            om = await omJson.json();
 
-            showForside();
+            showOm();
         }
 
-        function showForside() {
-            document.querySelector(".site-title").innerHTML = forside.title.rendered;
+        function showOm() {
+            document.querySelector(".tailor-overskrift").innerHTML = om.title.rendered;
+            document.querySelector(".om-content").innerHTML = om.content.rendered;
+            document.querySelector(".om-os").innerHTML = om.om_os;
+            document.querySelector(".tailor-splash").style.backgroundImage = `url(${om.splash_billede.guid})`;
+            document.querySelector(".om-billede").style.backgroundImage = `url(${om.om_os_billede.guid})`;
+            document.querySelector(".tailor-parallax").style.backgroundImage = `url(${om.parallax.guid})`;
+            document.querySelector(".your-tailors").innerHTML = om.tailor_overskrift;
+
+            getJsonTailor();
+        }
+
+
+        async function getJsonTailor() {
+            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/tailor";
+            const tailorJson = await fetch(url);
+            tailor = await tailorJson.json();
+
+            showTailor();
+        }
+
+        function showTailor() {
+
+            let dest = document.querySelector(".tailor-info");
+            let temp = document.querySelector(".temp-tailor");
+
+            tailor.forEach(tai => {
+                let klon = temp.cloneNode(true).content;
+
+                klon.querySelector(".tailor-navn").innerHTML = tai.title.rendered;
+                klon.querySelector(".tailor-beskrivelse").innerHTML = tai.beskrivelse;
+                klon.querySelector(".tailor-billede").style.backgroundImage = `url(${tai.tailor_billede.guid})`;
+
+                dest.appendChild(klon);
+            })
         }
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

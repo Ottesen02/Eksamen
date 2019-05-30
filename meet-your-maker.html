@@ -22,13 +22,13 @@
                 <a href="koekkener.html">
                     <h4>Køkkener</h4>
                 </a>
-                <a href="koekkener.html">
+                <a href="bad.html">
                     <h4>Bad</h4>
                 </a>
-                <a href="koekkener.html">
+                <a href="garderobe.html">
                     <h4>Garderobe</h4>
                 </a>
-                <a href="koekkener.html">
+                <a href="opbevaring.html">
                     <h4>Opbevaring</h4>
                 </a>
             </div>
@@ -116,6 +116,26 @@
         </div>
     </div>
 
+    <section class="tailor-splash">
+        <h2 class="tailor-overskrift"></h2>
+    </section>
+
+    <main class="tailor-content">
+        <h2 class="om-os"></h2>
+        <div class="tailor-indhold">
+            <div class="om-billede"></div>
+            <div class="om-content">
+            </div>
+        </div>
+    </main>
+
+    <section class="maker-container">
+        <div class="left-column">
+            <div class="top-pic"></div>
+            <div class="bot-pic"></div>
+        </div>
+        <div class="right-column"></div>
+    </section>
 
     <footer>
         <div class="topbar">
@@ -171,19 +191,26 @@
 
     <script src="script.js"></script>
     <script>
-        let forside;
+        let maker;
         document.addEventListener("DOMContentLoaded", getJson);
 
         async function getJson() {
-            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/forside";
-            const forsideJson = await fetch(url);
-            forside = await forsideJson.json();
+            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/meet_your_maker/279";
+            const makerJson = await fetch(url);
+            maker = await makerJson.json();
 
-            showForside();
+            showMaker();
         }
 
-        function showForside() {
-            document.querySelector(".site-title").innerHTML = forside.title.rendered;
+        function showMaker() {
+            document.querySelector(".tailor-overskrift").innerHTML = maker.title.rendered;
+            document.querySelector(".om-content").innerHTML = maker.content.rendered;
+            document.querySelector(".tailor-splash").style.backgroundImage = `url(${maker.splash_billede.guid})`;
+            document.querySelector(".om-billede").style.backgroundImage = `url(${maker.maker_billede.guid})`;
+            document.querySelector(".right-column").style.backgroundImage = `url(${maker.billede1.guid})`;
+            document.querySelector(".top-pic").style.backgroundImage = `url(${maker.billede2.guid})`;
+            document.querySelector(".bot-pic").style.backgroundImage = `url(${maker.billede3.guid})`;
+
         }
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

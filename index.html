@@ -22,16 +22,15 @@
                 <a href="koekkener.html">
                     <h4>Køkkener</h4>
                 </a>
-                <a href="koekkener.html">
+                <a href="bad.html">
                     <h4>Bad</h4>
                 </a>
-                <a href="koekkener.html">
+                <a href="garderobe.html">
                     <h4>Garderobe</h4>
                 </a>
-                <a href="koekkener.html">
+                <a href="opbevaring.html">
                     <h4>Opbevaring</h4>
                 </a>
-
             </div>
             <a href="kontakt.html" class="mobil-book">
                 <img src="billeder/Kalender.svg" alt="kalender" class="kalender-icon">
@@ -119,10 +118,10 @@
     </div>
     <section id="splash" class="splash">
         <div class="color-overlay">
-            <h1 class="site-title">kitchen tailor</h1>
-            <h3 class="underoverskrift">Køkkensnedkeri & indretning</h3>
-            <p class="site-desc-mobil hide-desktop">Kitchen Tailor skræddersyr alle køkkener efter ønsker, behov og ikke mindst plads. </p>
-            <p class="site-desc-desktop hide-mobile">Kitchen Tailor skræddersyr alle køkkener efter ønsker, behov og ikke mindst plads. Det er ikke standard mål som dikterer designet, da vi arbejder i millimeter og derfor ikke er begrænset af rummelige udfordringer. Resultatet bliver et arkitekttegnet køkken, designet til det hus det skal fungere i de næste mange år.</p>
+            <h1 class="site-title"></h1>
+            <h3 class="underoverskrift"></h3>
+            <p class="site-desc-mobil hide-desktop"></p>
+            <p class="site-desc-desktop hide-mobile"></p>
             <button class="hero-button">gå på opdagelse
                 <img src="billeder/arrow.svg" alt="arrow">
             </button>
@@ -130,32 +129,46 @@
     </section>
 
     <section class="divider1">
-        <h2 class="divider1-tekst">velkommen til Kitchen Tailor</h2>
+        <h2 class="divider1-tekst"></h2>
     </section>
 
     <section class="forside-kategori">
         <div class="kokken1 kokken">
-            <div class="forside-billede1 forside-billede"></div>
-            <div class="tekst-container">
-                <h2 class="kokken-overskrift kokken-overskrift1">KLASSISK</h2>
-            </div>
+            <a href="koekkener.html">
+                <div class="overflow">
+                    <div class="forside-billede1 forside-billede">
+                    </div>
+                </div>
+                <div class="tekst-container">
+                    <h2 class="kokken-overskrift kokken-overskrift1"></h2>
+                </div>
+            </a>
         </div>
         <div class="kokken2 kokken">
-            <div class="forside-billede2 forside-billede"></div>
-            <div class="tekst-container">
-                <h2 class="kokken-overskrift kokken-overskrift2">ENKELT</h2>
-            </div>
+            <a href="koekkener.html">
+                <div class="overflow">
+                    <div class="forside-billede2 forside-billede"></div>
+                </div>
+                <div class="tekst-container">
+                    <h2 class="kokken-overskrift kokken-overskrift2"></h2>
+                </div>
+            </a>
+
         </div>
         <div class="kokken3 kokken">
-            <div class="forside-billede1 forside-billede"></div>
-            <div class="tekst-container">
-                <h2 class="kokken-overskrift kokken-overskrift3">VILDT</h2>
-            </div>
+            <a href="koekkener.html">
+                <div class="overflow">
+                    <div class="forside-billede3 forside-billede"></div>
+                </div>
+                <div class="tekst-container">
+                    <h2 class="kokken-overskrift kokken-overskrift3"></h2>
+                </div>
+            </a>
         </div>
     </section>
 
     <section class="divider2">
-        <h2 class="divider2-tekst">Book et møde med en tailor</h2>
+        <h2 class="divider2-tekst"></h2>
         <button class="divider-button">Book Møde
             <img src="billeder/Kalender.svg" alt="kalender"></button>
     </section>
@@ -166,25 +179,25 @@
 
     <section class="andre-rum">
         <div class="bad-billede andre-container">
-            <div class="rum-color-overlay">
-                <a href="bad.html">
-                    <h2 class="bad-overskrift">Badeværelse</h2>
-                </a>
-            </div>
+            <a href="bad.html">
+                <div class="rum-color-overlay">
+                    <h2 class="bad-overskrift"></h2>
+                </div>
+            </a>
         </div>
         <div class="garde-billede andre-container">
-            <div class="rum-color-overlay">
-                <a href="garderobe.html">
-                    <h2 class="garde-overskrift">Garderobe</h2>
-                </a>
-            </div>
+            <a href="garderobe.html">
+                <div class="rum-color-overlay">
+                    <h2 class="garde-overskrift"></h2>
+                </div>
+            </a>
         </div>
         <div class="reol-billede andre-container">
-            <div class="rum-color-overlay">
-                <a href="garderobe.html">
-                    <h2 class="reol-overskrift">Reoler & Vitrine</h2>
-                </a>
-            </div>
+            <a href="opbevaring.html">
+                <div class="rum-color-overlay">
+                    <h2 class="reol-overskrift"></h2>
+                </div>
+            </a>
         </div>
     </section>
 
@@ -246,7 +259,7 @@
         document.addEventListener("DOMContentLoaded", getJson);
 
         async function getJson() {
-            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/forside";
+            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/forside/22";
             const forsideJson = await fetch(url);
             forside = await forsideJson.json();
 
@@ -254,7 +267,26 @@
         }
 
         function showForside() {
+            document.querySelector(".splash").style.backgroundImage = `url(${forside.splash_image.guid})`;
             document.querySelector(".site-title").innerHTML = forside.title.rendered;
+            document.querySelector(".underoverskrift").innerHTML = forside.underoverskrift;
+            document.querySelector(".site-desc-mobil").innerHTML = forside.mobil_beskrivelse;
+            document.querySelector(".site-desc-desktop").innerHTML = forside.content.rendered;
+            document.querySelector(".divider1-tekst").innerHTML = forside.first_devider;
+            document.querySelector(".kokken-overskrift1").innerHTML = forside.kokken_overskrift_1;
+            document.querySelector(".kokken-overskrift2").innerHTML = forside.kokken_overskrift_2;
+            document.querySelector(".kokken-overskrift3").innerHTML = forside.kokken_overskrift_3;
+            document.querySelector(".forside-billede1").style.backgroundImage = `url(${forside.kokken_billede_1.guid})`;
+            document.querySelector(".forside-billede2").style.backgroundImage = `url(${forside.kokken_billede_2.guid})`;
+            document.querySelector(".forside-billede3").style.backgroundImage = `url(${forside.kokken_billede_3.guid})`;
+            document.querySelector(".divider2-tekst").innerHTML = forside.second_divider;
+            document.querySelector(".bad-billede").style.backgroundImage = `url(${forside.bad_billede.guid})`;
+            document.querySelector(".garde-billede").style.backgroundImage = `url(${forside.garderobe_billede.guid})`;
+            document.querySelector(".reol-billede").style.backgroundImage = `url(${forside.reoler_og_vitrine_billede.guid})`;
+            document.querySelector(".bad-overskrift").innerHTML = forside.bad_overskrift;
+            document.querySelector(".garde-overskrift").innerHTML = forside.garderobe_overskrift;
+            document.querySelector(".reol-overskrift").innerHTML = forside.reoler_og_vitrine_overskrift;
+
         }
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
