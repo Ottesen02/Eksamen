@@ -787,6 +787,7 @@ footer a:hover {
     height: 50px;
     width: 50px;
     margin: 5px;
+    cursor: pointer;
 }
 
 .farve1 {
@@ -829,12 +830,14 @@ footer a:hover {
 
 .stilarter p {
     padding: 3px 0;
+    cursor: pointer;
 }
 
 .find-kokken {
     text-align: center;
-    margin: 100px 0 -20px;
+    margin: 110px 0 -10px;
 }
+
 
 .kokken-container {
     display: grid;
@@ -898,11 +901,61 @@ footer a:hover {
     }
 }
 
-@media only screen and (min-width: 800px) {}
+@media only screen and (min-width: 800px) {
+
+    .kokken-container {
+        margin-left: 220px;
+    }
+
+    .find-kokken {
+        margin: 50px 0 0 200px;
+        font-size: 35px;
+    }
+
+    .filter-desktop {
+        background-color: #d0d0d0;
+        width: 220px;
+        height: 88vh;
+        position: fixed;
+        z-index: 50;
+        box-shadow: 3px 0 6px rgba(0, 0, 0, 0.50)
+    }
+
+    .farver {
+        grid-template-columns: 1fr 1fr;
+        width: 200px
+    }
+
+    .filter-desktop h4 {
+        font-size: 20px;
+    }
+
+    .stil-filter-desktop,
+    .farver-filter-desktop {
+        border-bottom: 1px solid #575757;
+
+    }
+
+    .stil-container,
+    .farver-container {
+        padding: 10px 20px 5px;
+    }
+
+    .farver,
+    .stilarter {
+        padding: 0 50px;
+        margin: 10px 0 20px
+    }
+}
 
 @media only screen and (min-width: 1000px) {}
 
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 1200px) {
+
+    .kokken-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
 
 /************* 6. Køkkenside ***************/
 
