@@ -775,6 +775,54 @@ footer a:hover {
     background-size: cover;
 }
 
+.farver {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 300px;
+    padding: 5px 30px;
+}
+
+.farve {
+    background-color: red;
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+}
+
+.farve1 {
+    background-color: #a2743f;
+}
+
+.farve2 {
+    background-color: #674829;
+}
+
+.farve3 {
+    background-color: white;
+    ;
+}
+
+.farve4 {
+    background-color: black;
+}
+
+.farve5 {
+    background-color: grey;
+    ;
+}
+
+.farve6 {
+    background-color: #214b21;
+}
+
+.farve7 {
+    background-color: #1b1b52;
+}
+
+.farve8 {
+    background-color: #3e1818;
+}
+
 .stilarter {
     padding: 5px 30px;
 }
