@@ -245,7 +245,8 @@
     <script src="script.js"></script>
     <script>
         let kokkener = [];
-        let urlParams = new
+        let filter_stil = "alle";
+        let filter_farve = "alle";
         let dest = document.querySelector(".kokken-container");
         let temp = document.querySelector(".kokken-temp");
 
@@ -261,23 +262,20 @@
 
         function showKokkener() {
             kokkener.forEach(kokken => {
-                if (filter_stil == "alle" || filter_stil == kokken.stil) {
-                    let klon = temp.cloneNode(true).content;
+                let klon = temp.cloneNode(true).content;
 
-                    klon.querySelector(".kokken-titel").innerHTML = kokken.title.rendered;
-                    klon.querySelector(".kokken-billede").style.backgroundImage = `url(${kokken.splash_billede.guid})`;
+                klon.querySelector(".kokken-titel").innerHTML = kokken.title.rendered;
+                klon.querySelector(".kokken-billede").style.backgroundImage = `url(${kokken.splash_billede.guid})`;
 
-                    dest.appendChild(klon);
-                }
+                dest.appendChild(klon);
+
             })
 
         }
-
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
-
     </script>
 </body>
 
