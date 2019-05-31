@@ -116,70 +116,26 @@
         </div>
     </div>
 
-    <div class="filter-mobil hide-desktop">
-        <div class="stil-filter-mobil">
-            <div class="stil-container">
-                <h4>Stil</h4>
-                <div class="plus-tegn-stil"></div>
-                <div class="minus-tegn-stil hide"></div>
-            </div>
-            <div class="stilarter hide">
-                <p class="stil-alle filter_stil stil-valgt" data-stil="alle">Alle</p>
-                <p class="stil-klassisk filter_stil" data-stil="klassisk">Klassisk</p>
-                <p class="stil-enkelt filter_stil" data-stil="enkelt">Enkelt</p>
-                <p class="stil-vildt filter_stil" data-stil="vildt">Vildt</p>
-            </div>
-        </div>
-        <div class="farver-filter-mobil">
-            <div class="farver-container">
-                <h4>Farver</h4>
-                <div class="plus-tegn-farver"></div>
-                <div class="minus-tegn-farver hide"></div>
-            </div>
-            <div class="farver hide">
-                <div class="farve farve1 filter-farve farve-valgt" data-farve="alle"></div>
-                <div class="farve farve2 filter_farve" data-farve="white"></div>
-                <div class="farve farve3 filter_farve" data-farve="grey"></div>
-                <div class="farve farve4 filter_farve" data-farve="black"></div>
-                <div class="farve farve5 filter_farve" data-farve="light_brown"></div>
-                <div class="farve farve8 filter_farve" data-farve="dark_brown"></div>
-                <div class="farve farve6 filter_farve" data-farve="green"></div>
-                <div class="farve farve7 filter_farve" data-farve="blue"></div>
-            </div>
-        </div>
-    </div>
-    <div class="filter-desktop hide-mobile-block">
-        <div class="stil-filter-desktop">
-            <div class="stil-container">
-                <h4>Stil</h4>
-            </div>
-            <div class="stilarter">
-                <p class="stil-alle filter_stil stil-valgt" data-stil="alle">Alle</p>
-                <p class="stil-klassisk filter_stil" data-stil="klassisk">Klassisk</p>
-                <p class="stil-enkelt filter_stil" data-stil="enkelt">Enkelt</p>
-                <p class="stil-vildt filter_stil" data-stil="vildt">Vildt</p>
-            </div>
-        </div>
-        <div class="farver-filter-desktop">
-            <div class="farver-container">
-                <h4>Farver</h4>
-            </div>
-            <div class="farver">
-                <div class="farve farve1 filter-farve farve-valgt" data-farve="alle"></div>
-                <div class="farve farve2 filter_farve" data-farve="white"></div>
-                <div class="farve farve3 filter_farve" data-farve="grey"></div>
-                <div class="farve farve4 filter_farve" data-farve="black"></div>
-                <div class="farve farve5 filter_farve" data-farve="light_brown"></div>
-                <div class="farve farve8 filter_farve" data-farve="dark_brown"></div>
-                <div class="farve farve6 filter_farve" data-farve="green"></div>
-                <div class="farve farve7 filter_farve" data-farve="blue"></div>
-            </div>
-        </div>
-    </div>
-    <h2 class="find-kokken">Find dit nye køkken i dag</h2>
-    <section class="kokken-container">
-
+    <section class="kokken-splash">
+        <a href="#kokken-info">
+            <div class="arrow hide-mobile"></div>
+        </a>
     </section>
+
+    <section id="kokken-info" class="kokken-info">
+        <h2 class="kokken-overskrift"></h2>
+        <h4 class="kokken-underoverskrift"></h4>
+        <p class="kokken-beskrivelse"></p>
+    </section>
+
+    <section class="maker-container">
+        <div class="left-column">
+            <div class="top-pic"></div>
+            <div class="bot-pic"></div>
+        </div>
+        <div class="right-column"></div>
+    </section>
+
     <footer>
         <div class="topbar">
             <h1>Kitchen Tailor</h1>
@@ -231,45 +187,28 @@
             </div>
         </div>
     </footer>
-    <template class="kokken-temp">
-        <div class="single-container">
-            <div class="overflow-kokken">
-                <div class="kokken-billede">
-                </div>
-            </div>
-            <div class="kokken-tekst-container">
-                <h2 class="kokken-titel"></h2>
-            </div>
-        </div>
-    </template>
+
     <script src="script.js"></script>
     <script>
-        let kokkener = [];
-        let urlParams = new
-        let dest = document.querySelector(".kokken-container");
-        let temp = document.querySelector(".kokken-temp");
-
+        let kokken;
         document.addEventListener("DOMContentLoaded", getJson);
 
         async function getJson() {
             const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/kokkener";
-            const kokkenerJson = await fetch(url);
-            kokkener = await kokkenerJson.json();
+            const kokkenJson = await fetch(url);
+            kokken = await kokkenJson.json();
 
-            showKokkener();
+            showKokken();
         }
 
-        function showKokkener() {
-            kokkener.forEach(kokken => {
-                if (filter_stil == "alle" || filter_stil == kokken.stil) {
-                    let klon = temp.cloneNode(true).content;
+        function showKokken() {
+            document.querySelector(".kokken-splash").style.backgroundImage = `url(${kokken.splash_billede.guid})`;
+            document.querySelector(".kokken-overskrift").innerHTML = kokken.kokken_underoverskrift;
+            document.querySelector(".kokken-beskrivelse").innerHTML = kokken.content.rendered;
+            document.querySelector(".top-pic").style.backgroundImage = `url(${kokken.top_left_billede.guid})`;
+            document.querySelector(".bot-pic").style.backgroundImage = `url(${kokken.bottom_left_billede.guid})`;
+            document.querySelector(".right-column").style.backgroundImage = `url(${kokken.right_billede.guid})`;
 
-                    klon.querySelector(".kokken-titel").innerHTML = kokken.title.rendered;
-                    klon.querySelector(".kokken-billede").style.backgroundImage = `url(${kokken.splash_billede.guid})`;
-
-                    dest.appendChild(klon);
-                }
-            })
 
         }
 
