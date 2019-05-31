@@ -142,9 +142,9 @@
                 <div class="farve farve3 filter_farve" data-farve="grey"></div>
                 <div class="farve farve4 filter_farve" data-farve="black"></div>
                 <div class="farve farve5 filter_farve" data-farve="light_brown"></div>
-                <div class="farve farve8 filter_farve" data-farve="dark_brown"></div>
-                <div class="farve farve6 filter_farve" data-farve="green"></div>
-                <div class="farve farve7 filter_farve" data-farve="blue"></div>
+                <div class="farve farve6 filter_farve" data-farve="dark_brown"></div>
+                <div class="farve farve7 filter_farve" data-farve="green"></div>
+                <div class="farve farve8 filter_farve" data-farve="blue"></div>
             </div>
         </div>
     </div>
@@ -170,9 +170,9 @@
                 <div class="farve farve3 filter_farve" data-farve="grey"></div>
                 <div class="farve farve4 filter_farve" data-farve="black"></div>
                 <div class="farve farve5 filter_farve" data-farve="light_brown"></div>
-                <div class="farve farve8 filter_farve" data-farve="dark_brown"></div>
-                <div class="farve farve6 filter_farve" data-farve="green"></div>
-                <div class="farve farve7 filter_farve" data-farve="blue"></div>
+                <div class="farve farve6 filter_farve" data-farve="dark_brown"></div>
+                <div class="farve farve7 filter_farve" data-farve="green"></div>
+                <div class="farve farve8 filter_farve" data-farve="blue"></div>
             </div>
         </div>
     </div>
@@ -272,6 +272,18 @@
             })
 
         }
+
+
+        document.querySelector(".stil-container").addEventListener("click", () => {
+            document.querySelector(".plus-tegn-stil").classList.toggle("hide");
+            document.querySelector(".minus-tegn-stil").classList.toggle("hide");
+            document.querySelector(".stilarter").classList.toggle("hide");
+        })
+        document.querySelector(".farver-container").addEventListener("click", () => {
+            document.querySelector(".plus-tegn-farver").classList.toggle("hide");
+            document.querySelector(".minus-tegn-farver").classList.toggle("hide");
+            document.querySelector(".farver").classList.toggle("hide");
+        })
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

@@ -48,7 +48,7 @@ p {
 
 a {
     text-decoration: none;
-    color: #000000;
+    color: #403d3d;
 }
 
 /************* 2. Header/Nav ***************/
@@ -116,7 +116,7 @@ header {
 .bar3 {
     width: 37.5px;
     height: 3px;
-    background-color: #000000;
+    background-color: #403d3d;
     transition: 0.5s;
 }
 
@@ -144,7 +144,7 @@ header {
 .mobil-overlay {
     height: 100vh;
     width: 100vw;
-    background-color: #cecece;
+    background-color: #bfb6b6;
     z-index: 60;
     position: fixed;
     top: 100px;
@@ -155,6 +155,7 @@ header {
 
 .top-container {
     background-color: white;
+    ;
     padding: 20px;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.50);
     text-align: center;
@@ -184,7 +185,7 @@ header {
     padding: 5px 5px 5px 5px;
     width: 300px;
     height: 37px;
-    border: 3px solid #414141;
+    border: 3px solid #403d3d;
     margin: 15px 0;
 }
 
@@ -209,7 +210,7 @@ header {
 .desk-overlay {
     height: 100vh;
     width: 350px;
-    background-color: #cecece;
+    background-color: #bfb6b6;
     z-index: 50;
     position: fixed;
     top: 100px;
@@ -243,7 +244,7 @@ header {
     padding: 5px 5px 5px 5px;
     width: 300px;
     height: 37px;
-    border: 3px solid #414141;
+    border: 3px solid #403d3d;
     margin: 15px 0;
 }
 
@@ -259,7 +260,6 @@ header {
 
 .desk-sub-menupunkter a {
     margin: 1vh 0;
-    font-size: ;
 
 }
 
@@ -307,8 +307,8 @@ header {
 /************* 3. Footer ***************/
 
 footer {
-    background-color: #575757;
-    color: #eeeeee;
+    background-color: #807979;
+    color: white;
     transition: 0.7s all ease;
     padding: 20px;
     text-align: center;
@@ -366,7 +366,7 @@ footer a:hover {
 
 .footer-hovedsider a,
 .footer-subsider a {
-    color: #eeeeee;
+    color: white;
     display: block;
     padding: 3px;
     font-size: 17px;
@@ -380,7 +380,7 @@ footer a:hover {
     grid-gap: 20px 0;
     max-width: 1200px;
     margin: 0 auto;
-    border-top: 1px solid #bebebe;
+    border-top: 1px solid #fff1f1;
 
 }
 
@@ -433,7 +433,7 @@ footer a:hover {
 }
 
 .color-overlay {
-    background-color: rgba(31, 31, 31, 0.75);
+    background-color: rgb(64, 61, 61, 0.75);
     width: 100%;
     height: 100%;
     padding: 30vh 20px 20px;
@@ -492,7 +492,7 @@ footer a:hover {
 }
 
 .divider1 {
-    background-color: #f0f0f0;
+    background-color: #e6dada;
     height: 100px;
     font-size: 13px;
     display: flex;
@@ -540,7 +540,7 @@ footer a:hover {
 }
 
 .tekst-container {
-    background-color: #414141;
+    background-color: #403d3d;
     height: 75px;
     width: 200px;
     margin: -55px auto 0;
@@ -555,7 +555,7 @@ footer a:hover {
 }
 
 .divider2 {
-    background-color: #6a6a6a;
+    background-color: #807979;
     height: 100px;
     font-size: 13px;
     justify-content: center;
@@ -616,7 +616,7 @@ footer a:hover {
     height: 100%;
     display: flex;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.28);
+    background-color: rgb(128, 121, 121, 0.35);
     transition: 0.4s all ease;
 }
 
@@ -633,7 +633,7 @@ footer a:hover {
 .bad-overskrift,
 .garde-overskrift,
 .reol-overskrift {
-    background-color: #414141;
+    background-color: #403d3d;
     height: 50px;
     font-size: 18px;
     padding: 10px;
@@ -702,7 +702,7 @@ footer a:hover {
 
     .andre-container {
         height: 200px;
-        background-color: #848484;
+        background-color: #807979;
 
     }
 
@@ -743,7 +743,7 @@ footer a:hover {
 /************* 5. Køkkener ***************/
 
 .filter-mobil {
-    background-color: #d0d0d0;
+    background-color: #e6dada;
     position: fixed;
     width: 100%;
     z-index: 50;
@@ -756,7 +756,7 @@ footer a:hover {
 
 .stil-filter-mobil,
 .farver-filter-mobil {
-    border-bottom: 1px solid #575757;
+    border-bottom: 1px solid #807979;
     padding: 7px 20px;
 }
 
@@ -795,7 +795,6 @@ footer a:hover {
 }
 
 .farve {
-    background-color: red;
     height: 50px;
     width: 50px;
     margin: 5px;
@@ -803,16 +802,15 @@ footer a:hover {
 }
 
 .farve1 {
-    background-color: #a2743f;
+    background-image: linear-gradient(#ff0000, #ff8900, #f5ff00, #58ff00, #00ff9d, #00ffff, #006cff, #0031ff, #6200ff, #ff00ff, #ff0062)
 }
 
 .farve2 {
-    background-color: #674829;
+    background-color: white;
 }
 
 .farve3 {
-    background-color: white;
-    ;
+    background-color: grey;
 }
 
 .farve4 {
@@ -820,20 +818,20 @@ footer a:hover {
 }
 
 .farve5 {
-    background-color: grey;
+    background-color: #ffbf75;
     ;
 }
 
 .farve6 {
-    background-color: #214b21;
+    background-color: #653715;
 }
 
 .farve7 {
-    background-color: #1b1b52;
+    background-color: #1b521d;
 }
 
 .farve8 {
-    background-color: #3e1818;
+    background-color: #1e1e6a;
 }
 
 .stilarter {
@@ -881,7 +879,7 @@ footer a:hover {
 }
 
 .kokken-tekst-container {
-    background-color: #414141;
+    background-color: #403d3d;
     height: 60px;
     width: 200px;
     margin: -30px auto;
@@ -925,7 +923,7 @@ footer a:hover {
     }
 
     .filter-desktop {
-        background-color: #d0d0d0;
+        background-color: #e6dada;
         width: 220px;
         height: 88vh;
         position: fixed;
@@ -944,7 +942,7 @@ footer a:hover {
 
     .stil-filter-desktop,
     .farver-filter-desktop {
-        border-bottom: 1px solid #575757;
+        border-bottom: 1px solid #807979;
 
     }
 
@@ -985,7 +983,7 @@ footer a:hover {
 }
 
 .kokken-info {
-    background-color: #575757;
+    background-color: #807979;
     color: white;
     padding: 20px;
     min-height: 250px
@@ -1076,7 +1074,7 @@ footer a:hover {
 }
 
 .tailor-overskrift {
-    background-color: #414141;
+    background-color: #403d3d;
     height: 60px;
     font-size: 30px;
     padding: 20px;
@@ -1302,7 +1300,7 @@ footer a:hover {
 }
 
 .tekst-background {
-    background-color: #414141;
+    background-color: #403d3d;
     color: #eeee;
     padding: 20px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.75);
@@ -1397,7 +1395,7 @@ footer a:hover {
     width: 100%;
     margin: 5px 0;
     height: 35px;
-    border: 2px solid #575757;
+    border: 2px solid #807979;
     padding: 0 10px;
     font-family: playfair display;
     font-size: 13px;
@@ -1414,8 +1412,8 @@ footer a:hover {
 
 .input:focus {
     outline: none !important;
-    border: 1px solid #414141;
-    box-shadow: 0 0 6px #414141;
+    border: 1px solid #403d3d;
+    box-shadow: 0 0 6px #403d3d;
 }
 
 .knap-container {
@@ -1427,7 +1425,7 @@ footer a:hover {
 .send-knap {
     font-family: cinzel;
     font-size: 20px;
-    color: white;
+    color: #fff1f1;
     border: none;
     background-color: rgba(87, 87, 87, 0.50);
     padding: 5px 40px
