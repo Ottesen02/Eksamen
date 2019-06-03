@@ -115,26 +115,28 @@
             <div class="desk-menu-some"></div>
         </div>
     </div>
+    <main class="kokken-dest"></main>
+    <template class="kokken-temp">
+        <section class="kokken-splash">
+            <a href="#kokken-info">
+                <div class="arrow hide-mobile"></div>
+            </a>
+        </section>
 
-    <section class="kokken-splash">
-        <a href="#kokken-info">
-            <div class="arrow hide-mobile"></div>
-        </a>
-    </section>
+        <section id="kokken-info" class="kokken-info">
+            <h2 class="kokken-overskrift"></h2>
+            <h4 class="kokken-underoverskrift"></h4>
+            <p class="kokken-beskrivelse"></p>
+        </section>
 
-    <section id="kokken-info" class="kokken-info">
-        <h2 class="kokken-overskrift"></h2>
-        <h4 class="kokken-underoverskrift"></h4>
-        <p class="kokken-beskrivelse"></p>
-    </section>
-
-    <section class="maker-container">
-        <div class="left-column">
-            <div class="top-pic"></div>
-            <div class="bot-pic"></div>
-        </div>
-        <div class="right-column"></div>
-    </section>
+        <section class="maker-container">
+            <div class="left-column">
+                <div class="top-pic"></div>
+                <div class="bot-pic"></div>
+            </div>
+            <div class="right-column"></div>
+        </section>
+    </template>
 
     <footer>
         <div class="topbar">
@@ -191,25 +193,46 @@
     <script src="script.js"></script>
     <script>
         let kokken;
+        let urlParams = new URLSearchParams(window.location.search);
+        let titel = urlParams.get("titel")
+        let dest = document.querySelector(".kokken-dest");
+        let temp = document.querySelector(".kokken-temp");
+
         document.addEventListener("DOMContentLoaded", getJson);
 
         async function getJson() {
-            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/andre_rum/320";
+            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/kokkener?per_page=100";
             const kokkenJson = await fetch(url);
             kokken = await kokkenJson.json();
 
             showKokken();
         }
 
+
+        let klon = temp.cloneNode(true).content; /* variabel som siger kloning af template-taggets indhold. */
+
+        klon.querySelector(".kokken-titel").innerHTML = kokken.title.rendered; /* Indsætter titlen på køkkenet ind i vores H2 i vores template */
+        klon.querySelector(".kokken-billede").style.backgroundImage = `url(${kokken.splash_billede.guid})`; /* Tilføjer et baggrunddsbillede til vores container ".kokken-billede" ved hjælp af JS style */
+
+        /* tilføj klonen til main variablen dest (main tagget) */
+
+
         function showKokken() {
-            document.querySelector(".kokken-splash").style.backgroundImage = `url(${kokken.splash_billede.guid})`;
-            document.querySelector(".kokken-overskrift").innerHTML = kokken.title.rendered;
-            document.querySelector(".kokken-beskrivelse").innerHTML = kokken.content.rendered;
-            document.querySelector(".top-pic").style.backgroundImage = `url(${kokken.top_left_billede.guid})`;
-            document.querySelector(".bot-pic").style.backgroundImage = `url(${kokken.bottom_left_billede.guid})`;
-            document.querySelector(".right-column").style.backgroundImage = `url(${kokken.right_billede.guid})`;
+            dest.innerHTML = "";
+            kokken.forEach(kok => {
+                if (kok.title.rendered == titel) {
+                    let klon = temp.cloneNode(true).content;
 
+                    klon.querySelector(".kokken-splash").style.backgroundImage = `url(${kok.splash_billede.guid})`;
+                    klon.querySelector(".kokken-overskrift").innerHTML = kok.title.rendered;
+                    klon.querySelector(".kokken-beskrivelse").innerHTML = kok.content.rendered;
+                    klon.querySelector(".top-pic").style.backgroundImage = `url(${kok.top_left_billede.guid})`;
+                    klon.querySelector(".bot-pic").style.backgroundImage = `url(${kok.bottom_left_billede.guid})`;
+                    klon.querySelector(".right-column").style.backgroundImage = `url(${kok.right_billede.guid})`;
 
+                    dest.appendChild(klon);
+                }
+            })
         }
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

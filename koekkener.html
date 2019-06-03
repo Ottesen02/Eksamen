@@ -137,7 +137,7 @@
                 <div class="minus-tegn-farver hide"></div>
             </div>
             <div class="farver hide">
-                <div class="farve farve1 filter-farve farve-valgt" data-farve="alle"></div>
+                <div class="farve farve1 filter-farve farve-valgt" data-farve="alle_farver"></div>
                 <div class="farve farve2 filter_farve" data-farve="white"></div>
                 <div class="farve farve3 filter_farve" data-farve="grey"></div>
                 <div class="farve farve4 filter_farve" data-farve="black"></div>
@@ -165,7 +165,7 @@
                 <h4>Farver</h4>
             </div>
             <div class="farver">
-                <div class="farve farve1 filter-farve farve-valgt" data-farve="alle"></div>
+                <div class="farve farve1 filter-farve farve-valgt" data-farve="alle_farver"></div>
                 <div class="farve farve2 filter_farve" data-farve="white"></div>
                 <div class="farve farve3 filter_farve" data-farve="grey"></div>
                 <div class="farve farve4 filter_farve" data-farve="black"></div>
@@ -250,12 +250,13 @@
         let kokkener = []; /* Variabel med tomt array */
         let dest = document.querySelector(".kokken-container"); /* Variabel med Destinationen for hvor vores indhold skal sendes hen i vores html */
         let temp = document.querySelector(".kokken-temp"); /* Variabel som viser hvilken template functionen skal bruge i vores html */
-        let filter = "alle";
+        let filterStil = "alle";
+        let filterFarve = "alle_farver";
 
         document.addEventListener("DOMContentLoaded", getJson); /* Eventlistner som sikre sig at alt vores html er loaded før den begynder at kalde scriptet, og vores getJson Function */
 
         async function getJson() { /* Async function som henter vores Json */
-            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/kokkener"; /* En constant som er vores link med vores indhold */
+            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/kokkener?per_page=100"; /* En constant som er vores link med vores indhold */
             const kokkenerJson = await fetch(url); /* en constant som fetcher vores indhold fra vores url constant */
             kokkener = await kokkenerJson.json(); /* henter vores json indhold ind i vores tomme array */
 
@@ -267,8 +268,9 @@
             dest.innerHTML = "";
             kokkener.forEach(kokken => {
                 /* vi et loop med for each så vi får sat alle vores array elementer ind i hver deres template/section */
-                console.log(filter);
-                if (filter == "alle" || filter == kokken.stil) {
+                if ((filterStil == "alle" || filterStil == kokken.stil) && (filterFarve == "alle_farver" || filterFarve == kokken.farve)) {
+
+
 
                     let klon = temp.cloneNode(true).content; /* variabel som siger kloning af template-taggets indhold. */
 
@@ -277,22 +279,41 @@
 
                     dest.appendChild(klon); /* tilføj klonen til main variablen dest (main tagget) */
 
+                    dest.lastElementChild.addEventListener("click", () => {
+                        location.href = "kokken.html?titel=" + kokken.title.rendered;
+                    })
+
+
                 }
 
             })
         }
 
         document.querySelectorAll(".filter_stil").forEach(but => {
-            but.addEventListener("click", filtrering);
+            but.addEventListener("click", filtreringStil);
+
         })
 
-        function filtrering() {
+        document.querySelectorAll(".filter_farve").forEach(but => {
+            but.addEventListener("click", filtreringFarve);
+        })
+
+        function filtreringStil() {
             document.querySelectorAll(".filter_stil").forEach(but => {
                 but.classList.remove("stil-valgt");
             })
             this.classList.add("stil-valgt");
-            filter = this.getAttribute("data-stil");
-            console.log(filter)
+            filterStil = this.getAttribute("data-stil");
+            showKokkener();
+        }
+
+        function filtreringFarve() {
+
+            document.querySelectorAll(".filter_farve").forEach(but => {
+                but.classList.remove("farve-valgt");
+            })
+            this.classList.add("farve-valgt");
+            filterFarve = this.getAttribute("data-farve");
             showKokkener();
         }
 
