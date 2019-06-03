@@ -429,7 +429,6 @@ footer a:hover {
     background-color: #aa8b63;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
 }
 
 .color-overlay {
@@ -664,6 +663,8 @@ footer a:hover {
 @media only screen and (min-width: 800px) {
     .splash {
         height: 87vh;
+        background-attachment: fixed;
+
     }
 
     .divider1,
@@ -975,7 +976,6 @@ footer a:hover {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -1039,6 +1039,8 @@ footer a:hover {
 @media only screen and (min-width: 800px) {
     .kokken-splash {
         height: 550px;
+        background-attachment: fixed;
+
     }
 
     .kokken-overskrift {
@@ -1076,7 +1078,7 @@ footer a:hover {
 .tailor-overskrift {
     background-color: #403d3d;
     height: 60px;
-    font-size: 30px;
+    font-size: 25px;
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -1115,7 +1117,6 @@ footer a:hover {
 .tailor-parallax {
     background-color: #bfa8a8;
     height: 300px;
-    background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -1197,6 +1198,7 @@ footer a:hover {
     .tailor-parallax {
         height: 400px;
         margin-top: 40px;
+        background-attachment: fixed;
     }
 
     .om-billede {

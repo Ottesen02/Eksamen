@@ -232,7 +232,9 @@
         </div>
     </footer>
     <template class="kokken-temp">
+        <!-- Template som vi indsætter vores indhold i -->
         <div class="single-container">
+            <!-- -->
             <div class="overflow-kokken">
                 <div class="kokken-billede">
                 </div>
@@ -244,35 +246,55 @@
     </template>
     <script src="script.js"></script>
     <script>
-        let kokkener = [];
-        let filter_stil = "alle";
-        let filter_farve = "alle";
-        let dest = document.querySelector(".kokken-container");
-        let temp = document.querySelector(".kokken-temp");
+        /* Inline script med vores Json, så det er nemmere at overskue hvilken side det er til i stedet for at ligge det hele i samlet JS dokument */
+        let kokkener = []; /* Variabel med tomt array */
+        let dest = document.querySelector(".kokken-container"); /* Variabel med Destinationen for hvor vores indhold skal sendes hen i vores html */
+        let temp = document.querySelector(".kokken-temp"); /* Variabel som viser hvilken template functionen skal bruge i vores html */
+        let filter = "alle";
 
-        document.addEventListener("DOMContentLoaded", getJson);
+        document.addEventListener("DOMContentLoaded", getJson); /* Eventlistner som sikre sig at alt vores html er loaded før den begynder at kalde scriptet, og vores getJson Function */
 
-        async function getJson() {
-            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/kokkener";
-            const kokkenerJson = await fetch(url);
-            kokkener = await kokkenerJson.json();
+        async function getJson() { /* Async function som henter vores Json */
+            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/kokkener"; /* En constant som er vores link med vores indhold */
+            const kokkenerJson = await fetch(url); /* en constant som fetcher vores indhold fra vores url constant */
+            kokkener = await kokkenerJson.json(); /* henter vores json indhold ind i vores tomme array */
 
-            showKokkener();
+
+            showKokkener(); /* Kalder vores function som skal få vores indhold vist på siden */
         }
 
-        function showKokkener() {
+        function showKokkener() { /* Function som viser vores indhold */
+            dest.innerHTML = "";
             kokkener.forEach(kokken => {
-                let klon = temp.cloneNode(true).content;
+                /* vi et loop med for each så vi får sat alle vores array elementer ind i hver deres template/section */
+                console.log(filter);
+                if (filter == "alle" || filter == kokken.stil) {
 
-                klon.querySelector(".kokken-titel").innerHTML = kokken.title.rendered;
-                klon.querySelector(".kokken-billede").style.backgroundImage = `url(${kokken.splash_billede.guid})`;
+                    let klon = temp.cloneNode(true).content; /* variabel som siger kloning af template-taggets indhold. */
 
-                dest.appendChild(klon);
+                    klon.querySelector(".kokken-titel").innerHTML = kokken.title.rendered; /* Indsætter titlen på køkkenet ind i vores H2 i vores template */
+                    klon.querySelector(".kokken-billede").style.backgroundImage = `url(${kokken.splash_billede.guid})`; /* Tilføjer et baggrunddsbillede til vores container ".kokken-billede" ved hjælp af JS style */
+
+                    dest.appendChild(klon); /* tilføj klonen til main variablen dest (main tagget) */
+
+                }
 
             })
-
         }
 
+        document.querySelectorAll(".filter_stil").forEach(but => {
+            but.addEventListener("click", filtrering);
+        })
+
+        function filtrering() {
+            document.querySelectorAll(".filter_stil").forEach(but => {
+                but.classList.remove("stil-valgt");
+            })
+            this.classList.add("stil-valgt");
+            filter = this.getAttribute("data-stil");
+            console.log(filter)
+            showKokkener();
+        }
 
         document.querySelector(".stil-container").addEventListener("click", () => {
             document.querySelector(".plus-tegn-stil").classList.toggle("hide");

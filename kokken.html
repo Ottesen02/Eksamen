@@ -190,26 +190,24 @@
 
     <script src="script.js"></script>
     <script>
-        /* Inline script med vores Json, så det er nemmere at overskue hvilken side det er til i stedet for at ligge det hele i samlet JS dokument */
+        let kokken;
+        document.addEventListener("DOMContentLoaded", getJson);
 
-        let kokken; /* Variabel */
-        document.addEventListener("DOMContentLoaded", getJson); /* Eventlistner som sikre sig at alt vores html er loaded før den begynder at kalde scriptet, og vores getJson Function */
+        async function getJson() {
+            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/andre_rum/320";
+            const kokkenJson = await fetch(url);
+            kokken = await kokkenJson.json();
 
-        async function getJson() { /* Async function som henter vores Json */
-            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/andre_rum/330"; /* En constant som er vores link med vores indhold */
-            const kokkenJson = await fetch(url); /* en constant som fetcher vores indhold fra vores url constant */
-            kokken = await kokkenJson.json(); /* henter vores json indhold ind så vores variable "bliver til" vores indhold */
-
-            showKokken(); /* Kalder vores function som skal få vores indhold vist på siden */
+            showKokken();
         }
 
-        function showKokken() { /* Function som viser vores indhold */
-            document.querySelector(".kokken-splash").style.backgroundImage = `url(${kokken.splash_billede.guid})`; /* Tager fat i vores container som vi gerne vil ændsætte et baggrundsbillede ind i ved hjælp af style og css */
-            document.querySelector(".kokken-overskrift").innerHTML = kokken.title.rendered; /* Indsætter en tekst i en bestemt container */
-            document.querySelector(".kokken-beskrivelse").innerHTML = kokken.content.rendered; /* Indsætter en tekst i en bestemt container */
-            document.querySelector(".top-pic").style.backgroundImage = `url(${kokken.top_left_billede.guid})`; /* Tager fat i vores container som vi gerne vil ændsætte et baggrundsbillede ind i ved hjælp af style og css */
-            document.querySelector(".bot-pic").style.backgroundImage = `url(${kokken.bottom_left_billede.guid})`; /* Tager fat i vores container som vi gerne vil ændsætte et baggrundsbillede ind i ved hjælp af style og css */
-            document.querySelector(".right-column").style.backgroundImage = `url(${kokken.right_billede.guid})`; /* Tager fat i vores container som vi gerne vil ændsætte et baggrundsbillede ind i ved hjælp af style og css */
+        function showKokken() {
+            document.querySelector(".kokken-splash").style.backgroundImage = `url(${kokken.splash_billede.guid})`;
+            document.querySelector(".kokken-overskrift").innerHTML = kokken.title.rendered;
+            document.querySelector(".kokken-beskrivelse").innerHTML = kokken.content.rendered;
+            document.querySelector(".top-pic").style.backgroundImage = `url(${kokken.top_left_billede.guid})`;
+            document.querySelector(".bot-pic").style.backgroundImage = `url(${kokken.bottom_left_billede.guid})`;
+            document.querySelector(".right-column").style.backgroundImage = `url(${kokken.right_billede.guid})`;
 
 
         }
