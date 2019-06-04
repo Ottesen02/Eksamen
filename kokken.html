@@ -118,6 +118,9 @@
     <main class="kokken-dest"></main>
     <template class="kokken-temp">
         <section class="kokken-splash">
+            <a href="koekkener.html">
+                <div class="tilbage"> Tilbage til køkkener</div>
+            </a>
             <a href="#kokken-info">
                 <div class="arrow hide-mobile"></div>
             </a>
@@ -180,12 +183,21 @@
                 <p>Tegnestue og Showroom<br>
                     Strandvejen 140<br>
                     2900 Hellerup</p>
+                <p><br>
+                    Kitchen Tailors værksted
+                    Mesterlodden 6 <br> 2820 Gentofte</p>
             </div>
             <div class="footer-tider">
                 <h4>her har vi åbent</h4>
-                <p> Mandag: Lukket <br>
+                <p> Showroom <br>
+                    Mandag: Lukket <br>
                     Tirsdag-Fredag: 10:00-16:30<br>
                     Lørdag: 10:00-14:00</p>
+                <p><br>
+                    Værksted <br>
+                    Åbningstider efter aftale: <br>
+                    Mandag – Fredag 7.00-15.00</p>
+
             </div>
         </div>
     </footer>
@@ -234,6 +246,10 @@
                 }
             })
         }
+
+        document.querySelector(".tilbage").addEventListener("click", () => {
+            location.href = "koekkener.html";
+        })
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
