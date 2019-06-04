@@ -224,7 +224,7 @@
                     let klon = temp.cloneNode(true).content;
 
                     klon.querySelector(".kokken-splash").style.backgroundImage = `url(${kok.splash_billede.guid})`;
-                    klon.querySelector(".kokken-overskrift").innerHTML = kok.title.rendered;
+                    klon.querySelector(".kokken-overskrift").innerHTML = kok.kokken_underoverskrift;
                     klon.querySelector(".kokken-beskrivelse").innerHTML = kok.content.rendered;
                     klon.querySelector(".top-pic").style.backgroundImage = `url(${kok.top_left_billede.guid})`;
                     klon.querySelector(".bot-pic").style.backgroundImage = `url(${kok.bottom_left_billede.guid})`;
