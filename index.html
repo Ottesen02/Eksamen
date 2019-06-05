@@ -129,7 +129,10 @@
     </section>
 
     <section class="divider1">
-        <h2 class="divider1-tekst"></h2>
+        <div>
+            <h2 class="divider1-tekst"></h2>
+            <video src="billeder/Kitchen%20tailor%20final.mp4" autoplay controls muted></video>
+        </div>
     </section>
 
     <section class="forside-kategori">
@@ -179,21 +182,21 @@
     </section>
 
     <section class="andre-rum">
-        <div class="bad-billede andre-container" data-aos="slide-right" data-aos-duration="1000">
+        <div class="bad-billede andre-container" data-aos="fade-right" data-aos-duration="1000">
             <a href="bad.html">
                 <div class="rum-color-overlay">
                     <h2 class="bad-overskrift"></h2>
                 </div>
             </a>
         </div>
-        <div class="garde-billede andre-container" data-aos="slide-left" data-aos-duration="1000">
+        <div class="garde-billede andre-container" data-aos="fade-left" data-aos-duration="1000">
             <a href="garderobe.html">
                 <div class="rum-color-overlay">
                     <h2 class="garde-overskrift"></h2>
                 </div>
             </a>
         </div>
-        <div class="reol-billede andre-container" data-aos="slide-right" data-aos-duration="1000">
+        <div class="reol-billede andre-container" data-aos="fade-right" data-aos-duration="1000">
             <a href="opbevaring.html">
                 <div class="rum-color-overlay">
                     <h2 class="reol-overskrift"></h2>
@@ -298,10 +301,12 @@
             document.querySelector(".reol-overskrift").innerHTML = forside.reoler_og_vitrine_overskrift;
 
         }
+
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
+
     </script>
 </body>
 

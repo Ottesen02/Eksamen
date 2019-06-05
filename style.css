@@ -15,13 +15,14 @@ Indholdsfortegnelse
 /************* 1. Generelle Regler ***************/
 * {
     box-sizing: border-box;
+    scroll-behavior: smooth;
+
 }
 
 body {
     padding: 0;
     margin: 0;
     padding-top: 100px;
-    scroll-behavior: smooth;
 }
 
 img {
@@ -494,7 +495,6 @@ footer a:hover {
 
 .divider1 {
     background-color: #e6dada;
-    height: 100px;
     font-size: 13px;
     display: flex;
     justify-content: center;
@@ -502,7 +502,16 @@ footer a:hover {
     padding: 20px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.50);
     margin: 0 0 50px;
+    text-align: center;
 }
+
+video {
+    width: 100%;
+    margin: 20px auto 0;
+    max-width: 70vw;
+    animation-delay:
+}
+
 
 .forside-kategori {
     display: grid;
@@ -655,7 +664,10 @@ footer a:hover {
 
 @media only screen and (min-width: 600px) {
 
-    .divider1,
+    .divider1 {
+        font-size: 25px;
+    }
+
     .divider2 {
         height: 150px;
         font-size: 25px;
@@ -669,7 +681,10 @@ footer a:hover {
 
     }
 
-    .divider1,
+    .divider1 {
+        font-size: 32px;
+    }
+
     .divider2 {
         height: 200px;
         font-size: 32px;
@@ -735,7 +750,10 @@ footer a:hover {
 
 @media only screen and (min-width: 1000px) {
 
-    .divider1,
+    .divider1 {
+        font-size: 35px;
+    }
+
     .divider2 {
         font-size: 35px;
     }
@@ -918,7 +936,7 @@ footer a:hover {
 @media only screen and (min-width: 800px) {
 
     .kokken-container {
-        margin-left: 220px;
+        margin-left: 22vw;
     }
 
     .find-kokken {
@@ -928,7 +946,7 @@ footer a:hover {
 
     .filter-desktop {
         background-color: #e6dada;
-        width: 220px;
+        width: 22vw;
         height: 88vh;
         position: fixed;
         z-index: 50;
@@ -937,7 +955,7 @@ footer a:hover {
 
     .farver {
         grid-template-columns: 1fr 1fr;
-        width: 200px
+        width: 200px;
     }
 
     .filter-desktop h4 {
@@ -960,14 +978,46 @@ footer a:hover {
         padding: 0 50px;
         margin: 10px 0 20px
     }
+
+    .footer-koekkener {
+        width: 78vw;
+        margin-left: 22vw;
+        z-index: 1;
+    }
 }
 
-@media only screen and (min-width: 1000px) {}
+@media only screen and (min-width: 1000px) {
+    .footer-koekkener {
+        width: 81vw;
+        margin-left: 19vw;
+    }
+
+    .kokken-container {
+        margin-left: 19vw;
+    }
+
+    .filter-desktop {
+        width: 19vw;
+    }
+
+}
 
 @media only screen and (min-width: 1200px) {
 
     .kokken-container {
         grid-template-columns: 1fr 1fr 1fr;
+        margin-left: 17vw;
+
+    }
+
+    .footer-koekkener {
+        width: 83vw;
+        margin-left: 17vw;
+    }
+
+
+    .filter-desktop {
+        width: 17vw;
     }
 }
 
@@ -992,6 +1042,7 @@ footer a:hover {
     font-family: cinzel;
     background-color: rgba(255, 255, 255, 0.75);
     padding: 10px 20px;
+    z-index: 99;
 }
 
 .kokken-info {
@@ -1442,10 +1493,6 @@ footer a:hover {
 }
 
 
-
-
-
-
 @media only screen and (min-width: 600px) {}
 
 @media only screen and (min-width: 800px) {}
@@ -1476,11 +1523,15 @@ footer a:hover {
 }
 
 .farve-valgt {
-    box-shadow: 0 0 6px 4px rgba(87, 100, 255, 0.92);
+    box-shadow: 0 0 6px 4px #c99b6d;
 }
 
 .stil-valgt {
-    color: blue;
+    color: #ad5700;
+}
+
+.active {
+    text-decoration: underline
 }
 
 
@@ -1497,4 +1548,6 @@ footer a:hover {
     .hide-mobile-block {
         display: block;
     }
+
+
 }

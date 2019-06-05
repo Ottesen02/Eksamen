@@ -117,6 +117,9 @@
     </div>
     <main class="kokken-dest"></main>
     <template class="kokken-temp">
+        <a href="koekkener.html">
+            <div class="tilbage">Tilbage til køkkener</div>
+        </a>
         <section class="kokken-splash" data-aos="fade" data-aos-duration="750">
             <a href="#kokken-info">
                 <div class="arrow hide-mobile"></div>
@@ -217,15 +220,6 @@
             showKokken();
         }
 
-
-        let klon = temp.cloneNode(true).content; /* variabel som siger kloning af template-taggets indhold. */
-
-        klon.querySelector(".kokken-titel").innerHTML = kokken.title.rendered; /* Indsætter titlen på køkkenet ind i vores H2 i vores template */
-        klon.querySelector(".kokken-billede").style.backgroundImage = `url(${kokken.splash_billede.guid})`; /* Tilføjer et baggrunddsbillede til vores container ".kokken-billede" ved hjælp af JS style */
-
-        /* tilføj klonen til main variablen dest (main tagget) */
-
-
         function showKokken() {
             dest.innerHTML = "";
             kokken.forEach(kok => {
@@ -247,10 +241,12 @@
         document.querySelector(".tilbage").addEventListener("click", () => {
             location.href = "koekkener.html";
         })
+
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
+
     </script>
 </body>
 
