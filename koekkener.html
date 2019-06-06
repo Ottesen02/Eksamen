@@ -263,14 +263,9 @@
         let kokkener = []; /* Variabel med tomt array */
         let dest = document.querySelector(".kokken-container"); /* Variabel med Destinationen for hvor vores indhold skal sendes hen i vores html */
         let temp = document.querySelector(".kokken-temp"); /* Variabel som viser hvilken template functionen skal bruge i vores html */
-        let urlParams = new URLSearchParams(window.location.search);
-        let stil = urlParams.get("stil");
         let filterStil = "alle";
         let filterFarve = "alle_farver";
-        if (stil != "") {
-            filterStil = stil;
-            showKokkener();
-        }
+
         document.addEventListener("DOMContentLoaded", getJson); /* Eventlistner som sikre sig at alt vores html er loaded før den begynder at kalde scriptet, og vores getJson Function */
         async function getJson() { /* Async function som henter vores Json */
             const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/kokkener?per_page=100"; /* En constant som er vores link med vores indhold */
@@ -284,7 +279,7 @@
             console.log(filterStil);
             kokkener.forEach(kokken => {
                 /* vi et loop med for each så vi får sat alle vores array elementer ind i hver deres template/section */
-                if ((filterStil == "alle" || filterStil == kokken.stil || stil == kokken.stil)) {
+                if ((filterStil == "alle" || filterStil == kokken.stil)) {
                     if (filterFarve == "alle_farver" || filterFarve == kokken.farve) {
                         let klon = temp.cloneNode(true).content; /* variabel som siger kloning af template-taggets indhold. */
                         klon.querySelector(".kokken-titel").innerHTML = kokken.title.rendered; /* Indsætter titlen på køkkenet ind i vores H2 i vores template */
@@ -332,10 +327,12 @@
             document.querySelector(".minus-tegn-farver").classList.toggle("hide");
             document.querySelector(".farver").classList.toggle("hide");
         })
+
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
+
     </script>
 </body>
 

@@ -93,10 +93,16 @@ header {
 
 .mobil-book {
     text-align: center;
+
+}
+
+.mobil-book h4 {
+    padding: 5px 0;
 }
 
 .kalender-icon {
     width: 35px;
+    margin-right: 5px;
 }
 
 
