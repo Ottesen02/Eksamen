@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opbevaring</title>
+    <title>Mød din tailor</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet">
@@ -12,7 +12,6 @@
     <meta name="Description" content="Kitchen Tailor skræddersyr alle køkkener efter ønsker, behov og ikke mindst plads. Det er ikke standard mål som dikterer designet, da vi arbejder i millimeter og derfor ikke er begrænset af rummelige udfordringer. Resultatet bliver et arkitekttegnet køkken, designet til det hus det skal fungere i de næste mange år.">
     <meta name="keywords" content="arkitekttegnet, hellerup, indretning, kitchen tailor, kitchen, snedker, designer køkken, køkken, bordplade, køkkenlåger">
     <link rel="icon" href="billeder/favicon.png" type="image/gif" sizes="16x16">
-
 
 </head>
 
@@ -34,7 +33,7 @@
                     <a href="garderobe.html">
                         <h4>Garderobe</h4>
                     </a>
-                    <a href="opbevaring.html" class="active">
+                    <a href="opbevaring.html">
                         <h4>Opbevaring</h4>
                     </a>
                 </div>
@@ -68,8 +67,8 @@
                 <a href="koekkener.html">Køkkener</a>
                 <a href="bad.html">Bad</a>
                 <a href="garderobe.html">Garderobe</a>
-                <a href="opbevaring.html" class="active">Opbevaring</a>
-                <a href="mod-din-tailor.html">Mød din tailor</a>
+                <a href="opbevaring.html">Opbevaring</a>
+                <a href="mod-din-tailor.html" class="active">Mød din tailor</a>
                 <a href="vedligeholdelse.html">Vedligeholdelse</a>
                 <a href="mod-din-snedker.html">Mød din snedker</a>
                 <a href="kontakt.html">Kontakt</a>
@@ -96,7 +95,7 @@
     <div id="desk-overlay" class="desk-overlay hide-mobile-block">
         <div class="desk-top-container">
             <div class="desk-hoved-menupunkter">
-                <a href="mod-din-tailor.html">Mød din tailor</a>
+                <a href="mod-din-tailor.html" class="active">Mød din tailor</a>
                 <a href="vedligeholdelse.html">Vedligeholdelse</a>
                 <a href="mod-din-snedker.html">Mød din snedker</a>
                 <a href="kontakt.html">Kontakt</a>
@@ -121,26 +120,27 @@
         </div>
     </div>
 
-    <section class="kokken-splash" data-aos="fade" data-aos-duration="750">
-        <a href="#kokken-info">
-            <div class="arrow hide-mobile"></div>
-        </a>
+    <section class="tailor-splash" data-aos="fade" data-aos-duration="750">
+        <h2 class="tailor-overskrift"></h2>
     </section>
 
-    <section id="kokken-info" class="kokken-info" data-aos="fade-up" data-aos-duration="1000">
-        <h2 class="kokken-overskrift"></h2>
-        <h4 class="kokken-underoverskrift"></h4>
-        <p class="kokken-beskrivelse"></p>
-    </section>
-
-    <section class="maker-container">
-        <div class="left-column">
-            <div class="top-pic" data-aos="fade-right" data-aos-duration="1000"></div>
-            <div class="bot-pic" data-aos="fade-right" data-aos-duration="1000"></div>
+    <main class="tailor-content">
+        <h2 class="om-os" data-aos="fade" data-aos-duration="750"></h2>
+        <div class="tailor-indhold">
+            <div class="om-billede" data-aos="fade-right" data-aos-duration="1000"></div>
+            <div class="om-content" data-aos="fade-left" data-aos-duration="1000">
+            </div>
         </div>
-        <div class="right-column" data-aos="fade-left" data-aos-duration="1000"></div>
+    </main>
+
+    <section class="tailor-parallax">
     </section>
 
+    <section class="tailors">
+        <h2 class="your-tailors"></h2>
+        <div class="tailor-info">
+        </div>
+    </section>
     <footer data-aos="zoom-in-up" data-aos-duration="1000">
         <div class="topbar">
             <h1>Kitchen Tailor</h1>
@@ -201,31 +201,62 @@
             </div>
         </div>
     </footer>
-
+    <template class="temp-tailor">
+        <div class="tailor1">
+            <div class="tailor-billede tailor-billede1"></div>
+            <h3 class="tailor-navn tailor-navn1"></h3>
+            <p class="tailor-beskrivelse tailor-beskrivelse1"></p>
+        </div>
+    </template>
     <script src="script.js"></script>
     <script>
-        /* Inline script med vores Json, så det er nemmere at overskue hvilken side det er til i stedet for at ligge det hele i samlet JS dokument */
+        let om;
+        let tailor = [];
+        document.addEventListener("DOMContentLoaded", getJson);
 
-        let kokken; /* Variabel */
-        document.addEventListener("DOMContentLoaded", getJson); /* Eventlistner som sikre sig at alt vores html er loaded før den begynder at kalde scriptet, og vores getJson Function */
+        async function getJson() {
+            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/meet_your_tailor/268";
+            const omJson = await fetch(url);
+            om = await omJson.json();
 
-        async function getJson() { /* Async function som henter vores Json */
-            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/andre_rum/330"; /* En constant som er vores link med vores indhold */
-            const kokkenJson = await fetch(url); /* en constant som fetcher vores indhold fra vores url constant */
-            kokken = await kokkenJson.json(); /* henter vores json indhold ind så vores variable "bliver til" vores indhold */
-
-            showKokken(); /* Kalder vores function som skal få vores indhold vist på siden */
+            showOm();
         }
 
-        function showKokken() { /* Function som viser vores indhold */
-            document.querySelector(".kokken-splash").style.backgroundImage = `url(${kokken.splash_billede.guid})`; /* Tager fat i vores container som vi gerne vil ændsætte et baggrundsbillede ind i ved hjælp af style og css */
-            document.querySelector(".kokken-overskrift").innerHTML = kokken.title.rendered; /* Indsætter en tekst i en bestemt container */
-            document.querySelector(".kokken-beskrivelse").innerHTML = kokken.content.rendered; /* Indsætter en tekst i en bestemt container */
-            document.querySelector(".top-pic").style.backgroundImage = `url(${kokken.top_left_billede.guid})`; /* Tager fat i vores container som vi gerne vil ændsætte et baggrundsbillede ind i ved hjælp af style og css */
-            document.querySelector(".bot-pic").style.backgroundImage = `url(${kokken.bottom_left_billede.guid})`; /* Tager fat i vores container som vi gerne vil ændsætte et baggrundsbillede ind i ved hjælp af style og css */
-            document.querySelector(".right-column").style.backgroundImage = `url(${kokken.right_billede.guid})`; /* Tager fat i vores container som vi gerne vil ændsætte et baggrundsbillede ind i ved hjælp af style og css */
+        function showOm() {
+            document.querySelector(".tailor-overskrift").innerHTML = om.title.rendered;
+            document.querySelector(".om-content").innerHTML = om.content.rendered;
+            document.querySelector(".om-os").innerHTML = om.om_os;
+            document.querySelector(".tailor-splash").style.backgroundImage = `url(${om.splash_billede.guid})`;
+            document.querySelector(".om-billede").style.backgroundImage = `url(${om.om_os_billede.guid})`;
+            document.querySelector(".tailor-parallax").style.backgroundImage = `url(${om.parallax.guid})`;
+            document.querySelector(".your-tailors").innerHTML = om.tailor_overskrift;
+
+            getJsonTailor();
+        }
 
 
+        async function getJsonTailor() {
+            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/tailor";
+            const tailorJson = await fetch(url);
+            tailor = await tailorJson.json();
+
+            showTailor();
+        }
+
+        function showTailor() {
+
+            let dest = document.querySelector(".tailor-info");
+            let temp = document.querySelector(".temp-tailor");
+
+            tailor.forEach(tai => {
+                let klon = temp.cloneNode(true).content;
+
+                klon.querySelector(".tailor-navn").innerHTML = tai.title.rendered;
+                klon.querySelector(".tailor-beskrivelse").innerHTML = tai.beskrivelse;
+                klon.querySelector(".tailor-billede").style.backgroundImage = `url(${tai.tailor_billede.guid})`;
+
+                dest.appendChild(klon);
+            })
         }
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

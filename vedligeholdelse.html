@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opbevaring</title>
+    <title>Vedligeholdelse</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet">
@@ -15,6 +15,7 @@
 
 
 </head>
+
 
 <body>
     <header>
@@ -34,7 +35,7 @@
                     <a href="garderobe.html">
                         <h4>Garderobe</h4>
                     </a>
-                    <a href="opbevaring.html" class="active">
+                    <a href="opbevaring.html">
                         <h4>Opbevaring</h4>
                     </a>
                 </div>
@@ -61,16 +62,15 @@
             </div>
         </div>
     </header>
-
     <div id="overlay" class="mobil-overlay hide-desktop">
         <div class="top-container">
             <div class="mobil-hoved-menupunkter">
                 <a href="koekkener.html">Køkkener</a>
                 <a href="bad.html">Bad</a>
                 <a href="garderobe.html">Garderobe</a>
-                <a href="opbevaring.html" class="active">Opbevaring</a>
+                <a href="opbevaring.html">Opbevaring</a>
                 <a href="mod-din-tailor.html">Mød din tailor</a>
-                <a href="vedligeholdelse.html">Vedligeholdelse</a>
+                <a href="vedligeholdelse.html" class="active">Vedligeholdelse</a>
                 <a href="mod-din-snedker.html">Mød din snedker</a>
                 <a href="kontakt.html">Kontakt</a>
 
@@ -97,7 +97,7 @@
         <div class="desk-top-container">
             <div class="desk-hoved-menupunkter">
                 <a href="mod-din-tailor.html">Mød din tailor</a>
-                <a href="vedligeholdelse.html">Vedligeholdelse</a>
+                <a href="vedligeholdelse.html" class="active">Vedligeholdelse</a>
                 <a href="mod-din-snedker.html">Mød din snedker</a>
                 <a href="kontakt.html">Kontakt</a>
 
@@ -121,24 +121,53 @@
         </div>
     </div>
 
-    <section class="kokken-splash" data-aos="fade" data-aos-duration="750">
-        <a href="#kokken-info">
-            <div class="arrow hide-mobile"></div>
-        </a>
+    <section class="tailor-splash" data-aos="fade" data-aos-duration="750">
+        <h2 class="tailor-overskrift"></h2>
     </section>
 
-    <section id="kokken-info" class="kokken-info" data-aos="fade-up" data-aos-duration="1000">
-        <h2 class="kokken-overskrift"></h2>
-        <h4 class="kokken-underoverskrift"></h4>
-        <p class="kokken-beskrivelse"></p>
-    </section>
-
-    <section class="maker-container">
-        <div class="left-column">
-            <div class="top-pic" data-aos="fade-right" data-aos-duration="1000"></div>
-            <div class="bot-pic" data-aos="fade-right" data-aos-duration="1000"></div>
+    <main class="tailor-content care-content">
+        <div class="tailor-indhold">
+            <div class="om-billede care-billede-top" data-aos="fade-right" data-aos-duration="1000"></div>
+            <div class="om-content" data-aos="fade-left" data-aos-duration="1000">
+            </div>
         </div>
-        <div class="right-column" data-aos="fade-left" data-aos-duration="1000"></div>
+    </main>
+
+    <section class="andre-rum">
+        <div class="bad-billede andre-container tra-bordplade" data-aos="fade-right" data-aos-duration="1000">
+            <div class="tekst-background">
+                <h4 class="bordplade-overskrift1 bordplade-overskrift"></h4>
+                <p class="bordplade1 bordplade"></p>
+            </div>
+        </div>
+        <div class="garde-billede andre-container sten-bordplade" data-aos="fade-left" data-aos-duration="1000">
+            <div class="tekst-background">
+                <h4 class="bordplade-overskrift2 bordplade-overskrift"></h4>
+                <p class="bordplade2 bordplade"></p>
+            </div>
+        </div>
+        <div class="reol-billede andre-container stal-bordplade" data-aos="fade-right" data-aos-duration="1000">
+            <div class="tekst-background">
+                <h4 class="bordplade-overskrift3 bordplade-overskrift"></h4>
+                <p class="bordplade3 bordplade"></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="tailor-content content-bot">
+        <div class="tailor-indhold">
+            <div class="om-billede billede-bot" data-aos="fade-right" data-aos-duration="1000"></div>
+            <div class="bot-content" data-aos="fade-left" data-aos-duration="1000">
+                <h4 class="overskrift1 care-overskrift-bot"></h4>
+                <p class="beskrivelse1 care-beskrivelse-bot"></p>
+                <h4 class="overskrift2 care-overskrift-bot"></h4>
+                <p class="beskrivelse2 care-beskrivelse-bot"></p>
+                <h4 class="overskrift3 care-overskrift-bot"></h4>
+                <p class="beskrivelse3 care-beskrivelse-bot"></p>
+                <h4 class="overskrift4 care-overskrift-bot"></h4>
+                <p class="beskrivelse4 care-beskrivelse-bot"></p>
+            </div>
+        </div>
     </section>
 
     <footer data-aos="zoom-in-up" data-aos-duration="1000">
@@ -204,26 +233,41 @@
 
     <script src="script.js"></script>
     <script>
-        /* Inline script med vores Json, så det er nemmere at overskue hvilken side det er til i stedet for at ligge det hele i samlet JS dokument */
+        let care;
+        document.addEventListener("DOMContentLoaded", getJson);
 
-        let kokken; /* Variabel */
-        document.addEventListener("DOMContentLoaded", getJson); /* Eventlistner som sikre sig at alt vores html er loaded før den begynder at kalde scriptet, og vores getJson Function */
+        async function getJson() {
+            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/kitchen_care/302";
+            const careJson = await fetch(url);
+            care = await careJson.json();
 
-        async function getJson() { /* Async function som henter vores Json */
-            const url = "http://martinottesen.dk/kea/2-semester/eksamenwp/wordpress/wp-json/wp/v2/andre_rum/330"; /* En constant som er vores link med vores indhold */
-            const kokkenJson = await fetch(url); /* en constant som fetcher vores indhold fra vores url constant */
-            kokken = await kokkenJson.json(); /* henter vores json indhold ind så vores variable "bliver til" vores indhold */
-
-            showKokken(); /* Kalder vores function som skal få vores indhold vist på siden */
+            showCare();
         }
 
-        function showKokken() { /* Function som viser vores indhold */
-            document.querySelector(".kokken-splash").style.backgroundImage = `url(${kokken.splash_billede.guid})`; /* Tager fat i vores container som vi gerne vil ændsætte et baggrundsbillede ind i ved hjælp af style og css */
-            document.querySelector(".kokken-overskrift").innerHTML = kokken.title.rendered; /* Indsætter en tekst i en bestemt container */
-            document.querySelector(".kokken-beskrivelse").innerHTML = kokken.content.rendered; /* Indsætter en tekst i en bestemt container */
-            document.querySelector(".top-pic").style.backgroundImage = `url(${kokken.top_left_billede.guid})`; /* Tager fat i vores container som vi gerne vil ændsætte et baggrundsbillede ind i ved hjælp af style og css */
-            document.querySelector(".bot-pic").style.backgroundImage = `url(${kokken.bottom_left_billede.guid})`; /* Tager fat i vores container som vi gerne vil ændsætte et baggrundsbillede ind i ved hjælp af style og css */
-            document.querySelector(".right-column").style.backgroundImage = `url(${kokken.right_billede.guid})`; /* Tager fat i vores container som vi gerne vil ændsætte et baggrundsbillede ind i ved hjælp af style og css */
+        function showCare() {
+            document.querySelector(".tailor-overskrift").innerHTML = care.title.rendered;
+            document.querySelector(".om-content").innerHTML = care.content.rendered;
+            document.querySelector(".tailor-splash").style.backgroundImage = `url(${care.splash_billede.guid})`;
+            document.querySelector(".om-billede").style.backgroundImage = `url(${care.content_billede.guid})`;
+
+            document.querySelector(".bordplade-overskrift1").innerHTML = care.bordplade_overskrift1;
+            document.querySelector(".bordplade1").innerHTML = care.bordplade_tekst1;
+            document.querySelector(".bad-billede").style.backgroundImage = `url(${care.bordplade1.guid})`;
+            document.querySelector(".bordplade-overskrift2").innerHTML = care.bordplade_overskrift2;
+            document.querySelector(".bordplade2").innerHTML = care.bordplade_tekst2;
+            document.querySelector(".garde-billede").style.backgroundImage = `url(${care.bordplade2.guid})`;
+            document.querySelector(".bordplade-overskrift3").innerHTML = care.bordplade_overskrift3;
+            document.querySelector(".bordplade3").innerHTML = care.bordplade_tekst3;
+            document.querySelector(".reol-billede").style.backgroundImage = `url(${care.bordplade3.guid})`;
+            document.querySelector(".billede-bot").style.backgroundImage = `url(${care.content_billede_bot.guid})`;
+            document.querySelector(".overskrift1").innerHTML = care.beskrivelse_overskrift1;
+            document.querySelector(".beskrivelse1").innerHTML = care.beskrivelse1;
+            document.querySelector(".overskrift2").innerHTML = care.beskrivelse_overskrift2;
+            document.querySelector(".beskrivelse2").innerHTML = care.beskrivelse2;
+            document.querySelector(".overskrift3").innerHTML = care.beskrivelse_overskrift3;
+            document.querySelector(".beskrivelse3").innerHTML = care.beskrivelse3;
+            document.querySelector(".overskrift4").innerHTML = care.beskrivelse_overskrift4;
+            document.querySelector(".beskrivelse4").innerHTML = care.beskrivelse4;
 
 
         }

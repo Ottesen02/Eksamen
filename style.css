@@ -202,7 +202,6 @@ header {
 
 .mobil-sub-menupunkter a {
     margin: 2vh 0;
-    font-size:
 
 }
 
@@ -227,7 +226,6 @@ header {
     padding: 20px;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.50);
     text-align: center;
-    ´
 }
 
 .desk-hoved-menupunkter {
@@ -327,7 +325,7 @@ footer h4 {
     margin-bottom: 5px;
 }
 
-footer button {
+.footer-button {
     width: 200px;
     height: 50px;
     margin: 20px auto;
@@ -343,11 +341,11 @@ footer button {
 
 }
 
-footer button:hover {
+.footer-button:hover {
     transform: scale(1.1)
 }
 
-footer button img {
+.footer-button img {
     width: 25px;
     margin: 0 10px;
 }
@@ -476,6 +474,7 @@ footer a:hover {
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
     cursor: pointer;
+    max-width: 200px
 }
 
 .hero-button img {
@@ -509,7 +508,6 @@ video {
     width: 100%;
     margin: 20px auto 0;
     max-width: 70vw;
-    animation-delay:
 }
 
 
@@ -592,6 +590,7 @@ video {
     animation-timing-function: ease-in-out;
     margin: 10px auto;
     cursor: pointer;
+    width: 150px;
 }
 
 .divider-button img {
@@ -734,6 +733,7 @@ video {
     .divider-button {
         font-size: 20px;
         padding: 10px 20px;
+        width: 200px;
     }
 
     .divider-button img {
@@ -1550,4 +1550,12 @@ video {
     }
 
 
+}
+
+.ikke-lavet {
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
